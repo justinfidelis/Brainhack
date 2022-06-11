@@ -6,7 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <LoginScreen
-  logoImageSource={require("/Users/ryanguai/Documents/Brainhack/TrainTogether/assets/traintogether.png")}
+  logoImageSource={require("./assets/traintogether.png")}
   onLoginPress={() => {}}
   onSignupPress={() => {}}
   onEmailChange={(email: string) => {}}
