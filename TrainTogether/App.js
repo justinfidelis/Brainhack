@@ -5,7 +5,17 @@ import AppNavigation from './src/navigation/AppNavigation';
 
 export default function App() {
   return (
-    <AppNavigation />
+    <View style={styles.container}>
+      <LoginScreen
+  logoImageSource={require("./assets/traintogether.png")}
+  onLoginPress={() => {}}
+  onSignupPress={() => {}}
+  onEmailChange={(email: string) => {}}
+  onPasswordChange={(password: string) => {}}
+/>
+
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
