@@ -4,6 +4,9 @@ import DatePicker from 'react-native-datepicker';
 export default function HomeScreen() {
     const [date, setDate] = useState(new Date());
     var todaydate = new Date();
+    const startDate  = new Date();
+  const diffTime = Math.abs(date - startDate);
+  const diffInDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
     return (
         <SafeAreaView>
            <Text style={styles.home}>Home</Text> 
@@ -46,10 +49,7 @@ export default function HomeScreen() {
     ); 
  
 }
-const moment = require('moment');
-const startDate  = new Date().getDate();
-const endDate    = '2022-12-12';
-const diffInDays = moment(endDate).diff(moment(startDate), 'days'); 
+
 const styles = StyleSheet.create({
     home: {
         color: 'black',
