@@ -5,6 +5,7 @@ import PlannerScreen from '../screens/PlannerScreen.js';
 import RewardsScreen from '../screens/RewardsScreen.js';
 import SocialScreen from '../screens/SocialScreen.js';
 import ProfileScreen from '../screens/ProfileScreen.js';
+import LogInScreen from '../screens/LogInScreen.js';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -77,6 +78,12 @@ const AppNavigation = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator>
+          
+          <Stack.Screen 
+            name = "LogInScreen"
+            component={LogInScreen} 
+            options={{headerShown: false}}
+          />
           <Stack.Screen
             name="TabNavigator"
             component={TabNavigator}
