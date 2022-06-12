@@ -58,14 +58,14 @@ export default function PlannerScreen() {
         },
         exercise_container: {
           width: "95%",
-          height: 400,
+          height: 450,
           alignItems: "center",
         },
         box: {
           backgroundColor: "rgba(213,218,223,1)",
           borderRadius: 10,
           width: "95%",
-          height: 275,
+          height: 10,
           alignSelf: "center",
         },
         btn_box: {
@@ -78,7 +78,7 @@ export default function PlannerScreen() {
           borderRadius: 10,
           width: "50%",
           height: 40,
-          marginTop: 10,
+          marginTop: 40,
           justifyContent: "center",
         },
         btn_text: {
@@ -89,8 +89,48 @@ export default function PlannerScreen() {
         },
       });
 
+    let exercise = [];
+    let activityTotal = 0.0;
+    const activities = [{id: 0, name: "2.4km Run", duration: "11min", points: 20}, {id: 1, name: "Sit Ups", duration: "30 reps", points:20}, {id: 2, name: "Push Ups", duration: "20 reps", points:20}];
+
+    activities.forEach((x) => {
+      exercise.push(
+        <View
+          key={x.id}
+          style={{
+            alignItems: "center",
+            width: 340,
+            height: 100,
+            paddingTop: 8,
+            marginBottom: 15,
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "rgba(230,230,230,1)",
+              borderRadius: 15,
+              padding: 15,
+              width: "95%",
+              height: "95%",
+            }}
+          >
+            <Text style={{ fontSize: 25, fontWeight: "bold" }}>{x.name}</Text>
+            <Text>{"Rate: " + x.duration}</Text>
+            <Text>{"Points: " + x.points}</Text>
+          </View>
+        </View>
+      );
+      activityTotal = activityTotal + x.points;
+    });
+
     return (
         <View style={styles.container}>
+        <View style={styles.progress_box}>
+                <Text style={styles.progress_title}>Today is</Text>
+                <Text style={styles.progress_value}>
+                  {"12/06/2022"}
+                </Text>
+              </View>
           <View style={styles.progress}>
             <View style={styles.title_box}>
               <Text style={styles.title}>Today's Progress! 🏃</Text>
@@ -117,10 +157,10 @@ export default function PlannerScreen() {
                 { backgroundColor: "rgba(178,108,233,1)", marginVertical: 10 },
               ]}
             >
-              <Text style={styles.title}>Today's Activity 🏋️</Text>
+              <Text style={styles.title}>Today's Attempt 🏋️</Text>
             </View>
             <ScrollView horizontal={false} style={styles.box}>
-              <Text>Push Ups</Text>
+              <Text>{exercise}</Text>
             </ScrollView>
           </View>
           <View style={styles.btn_box}>
@@ -128,7 +168,7 @@ export default function PlannerScreen() {
               onPress={() => {}}
               style={[styles.btn_shape, { marginHorizontal: 10 }]}
             >
-              <Text style={styles.btn_text}>Add Exercise</Text>
+              <Text style={styles.btn_text}>Edit</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {}}
@@ -140,12 +180,6 @@ export default function PlannerScreen() {
               <Text style={styles.btn_text}>Refresh</Text>
             </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            onPress={() => {}}
-            style={[styles.btn_shape, { backgroundColor: "red" }]}
-          >
-            <Text style={styles.btn_text}>Log Out</Text>
-          </TouchableOpacity>
         </View>
       );
 

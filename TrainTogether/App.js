@@ -4,7 +4,7 @@ import React,{ useState, useEffect } from 'react';
 import AppNavigation from './src/navigation/AppNavigation';
 import LoginScreen from "react-native-login-screen";
 
-export default function App() {
+/*export default function App() {
   const [viewIndex, setViewIndex] = useState(0)
   //0: Login; 1: Home; 2: ...
 
@@ -24,6 +24,12 @@ export default function App() {
   ) : (
   <View style={styles.container}></View> //This is a placeholder blank screen
   ); 
+} */
+
+export default function App() {
+  return (
+    <AppNavigation />
+  )
 }
 
 const styles = StyleSheet.create({
