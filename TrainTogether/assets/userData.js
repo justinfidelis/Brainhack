@@ -2,7 +2,7 @@ const userData = [
     {
         id: 1,
         name: 'Jacob',
-        location: 'Tanah Merah',
+        location: 'Newton',
         goal: 'Gold',
 
     },

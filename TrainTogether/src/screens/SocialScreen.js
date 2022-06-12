@@ -6,29 +6,27 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 
 export default function SocialScreen({navigation}) {
     return (
-        <View style={{flex: 1, backgroundColor: 'white'}}>
-            <SafeAreaView style={{height: '80%'}}>
-                <Text style={styles.connectText}>Connect</Text>
-                <FlatList
-                    data={userData}
-                    renderItem={renderUser}
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                />
-            </SafeAreaView>
-            <View>
-                <TouchableOpacity style={styles.chatButton} onPress={() => navigation.navigate('Chat')}>
-                    <Ionicons name="chatbubble" size={30} color='white'></Ionicons>
-                </TouchableOpacity>
-            </View>
-        </View>
+        <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+            <Text style={styles.headerText}>Connect</Text>
+            <FlatList
+                data={userData}
+                renderItem={renderUser}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+            />
+            <Text style={styles.headerText}>Messages</Text>
+            <TouchableOpacity style={styles.chatButton} onPress={() => navigation.navigate('Chat')}>
+                <Ionicons name="chatbubble" size={30} color='white'></Ionicons>
+                <Text style={{color: 'white'}}>Chat</Text>
+            </TouchableOpacity>
+        </SafeAreaView>
     );
 }
 
 const renderUser = ({item}) => {
     return (
         <TouchableOpacity style={styles.userContainer}>
-            <AntDesign name="user" size={60} color='black'></AntDesign>
+            <AntDesign name="user" size={60} color='white'></AntDesign>
             <Text style={styles.userInfo}>{item.name}</Text>
             <Text style={styles.userInfo}>Location: {item.location}</Text>
             <Text style={styles.userInfo}>IPPT goal: {item.goal}</Text>
@@ -38,35 +36,38 @@ const renderUser = ({item}) => {
 
 const styles = StyleSheet.create({
     chatButton: {
-        backgroundColor: 'black',
-        borderRadius: 40,
-        width: '20%',
-        height: '30%',
+        backgroundColor: '#98c1d9',
+        borderRadius: 10,
+        width: '70%',
+        height: '10%',
         alignSelf: 'center',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginBottom: 40,
+        marginTop: 20
     },
-    connectText: {
-        color: 'black',
-        fontSize: 40,
+    headerText: {
+        color: '#0B0B45',
+        fontSize: 35,
         fontWeight: 'bold',
-        paddingLeft: 10,
+        paddingLeft: 20,
         paddingVertical: 5,
     },
     userContainer: {
-        height: '50%',
+        height: '90%',
         paddingHorizontal: 20,
         paddingVertical: 20,
-        backgroundColor: 'white',
+        backgroundColor: '#3d5a80',
         borderRadius: 10,
-        borderColor: 'black',
+        borderColor: 'white',
         borderWidth: 2,
         alignItems: 'center',
+        justifyContent: 'center',
         marginVertical: 10,
         marginHorizontal: 10
     },
     userInfo: {
-        color: 'black',
-        fontSize: 25,
+        color: 'white',
+        fontSize: 20,
     }
 });
