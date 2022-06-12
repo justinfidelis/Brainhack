@@ -11,6 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import ChatScreen from '../screens/ChatScreen.js';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -80,6 +81,11 @@ const AppNavigation = () => {
           <Stack.Screen
             name="TabNavigator"
             component={TabNavigator}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Chat"
+            component={ChatScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>
