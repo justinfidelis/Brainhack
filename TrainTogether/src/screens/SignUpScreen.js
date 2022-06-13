@@ -20,6 +20,9 @@ export default function SignUpScreen({navigation}) {
   const [value, setValue] = useState('')
   const [isEmailFocused, setEmailFocused] = useState(false)
   const [isPwFocused, setPwFocused] = useState(false)
+  const [isIPPTGoalFocused, setIPPTGoalFocused] = useState(false)
+  const [isBirthdayFocused, setBirthdayFocused] = useState(false)
+  const [isFitnessFocused, setFitnessFocused] = useState(false)
   return (
     <SafeAreaView>
       <Image style={styles.img} source={require('../../assets/traintogether.png')} /> 
@@ -27,13 +30,37 @@ export default function SignUpScreen({navigation}) {
                  placeholderTextColor={isEmailFocused == true ? 'rgb(14, 53, 179)' : 'grey'}
                  style={[styles.textinput, {borderColor: isEmailFocused == true ? 'rgb(14, 53, 179)' : 'rgb(230, 232, 240)'}]}
                  onChangeText={value => setValue(value)}
-                 onFocus={() => setEmailFocused(true)}>
+                 onFocus={() => setEmailFocused(true)}
+                 onBlur={() => setEmailFocused(false)}>
       </TextInput>
       <TextInput placeholder = "Password" 
                  placeholderTextColor={isPwFocused == true ? 'rgb(14, 53, 179)' : 'grey'}
                  style={[styles.textinput, {borderColor: isPwFocused == true ? 'rgb(14, 53, 179)' : 'rgb(230, 232, 240)'}]}
                  onChangeText={value => setValue(value)}
-                 onFocus={() => setPwFocused(true)}>
+                 onFocus={() => setPwFocused(true)}
+                 onBlur={() => setPwFocused(false)}
+                 secureTextEntry>
+      </TextInput>
+      <TextInput placeholder = "IPPT Goal" 
+                 placeholderTextColor={isIPPTGoalFocused == true ? 'rgb(14, 53, 179)' : 'grey'}
+                 style={[styles.textinput, {borderColor: isIPPTGoalFocused == true ? 'rgb(14, 53, 179)' : 'rgb(230, 232, 240)'}]}
+                 onChangeText={value => setValue(value)}
+                 onFocus={() => setIPPTGoalFocused(true)}
+                 onBlur={() => setIPPTGoalFocused(false)}>
+      </TextInput>
+      <TextInput placeholder = "Birthday" 
+                 placeholderTextColor={isBirthdayFocused == true ? 'rgb(14, 53, 179)' : 'grey'}
+                 style={[styles.textinput, {borderColor: isBirthdayFocused == true ? 'rgb(14, 53, 179)' : 'rgb(230, 232, 240)'}]}
+                 onChangeText={value => setValue(value)}
+                 onFocus={() => setBirthdayFocused(true)}
+                 onBlur={() => setBirthdayFocused(false)}>
+      </TextInput>
+      <TextInput placeholder = "Fitness Level" 
+                 placeholderTextColor={isFitnessFocused == true ? 'rgb(14, 53, 179)' : 'grey'}
+                 style={[styles.textinput, {borderColor: isFitnessFocused == true ? 'rgb(14, 53, 179)' : 'rgb(230, 232, 240)'}]}
+                 onChangeText={value => setValue(value)}
+                 onFocus={() => setFitnessFocused(true)}
+                 onBlur={() => setFitnessFocused(false)}>
       </TextInput>
       <TouchableOpacity style={styles.button}
                         onPress={() => navigation.navigate('TabNavigator')}>
@@ -64,7 +91,7 @@ const styles = StyleSheet.create({
       marginBottom: 5,
       borderColor: 'rgb(230, 232, 240)',
       borderWidth: 1,
-      color: 'rgb(14, 53, 179)'
+      color: 'black'
   },
   button: {
     backgroundColor: 'rgb(66, 174, 227)',

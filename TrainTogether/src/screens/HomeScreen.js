@@ -117,7 +117,7 @@ const calendar = require('../../assets/Calender.png');
 const profile = require('../../assets/User.png');
 const plus = require('../../assets/Plus.png');
 
-const App = () => {
+const App = ({navigation}) => {
   return (
     <>
       <SafeAreaView style={styles.container}>
@@ -153,6 +153,14 @@ const App = () => {
               <VideoPlay />
             
           </View>
+          <View style={styles.logout}>
+          <TouchableOpacity
+          onPress={() => navigation.navigate('LogInScreen')}
+          style={[styles.btn_shape, { backgroundColor: "red" }]}
+        >
+          <Text style={styles.btn_text}>Log Out</Text>
+        </TouchableOpacity>
+        </View>
         </View>
       </SafeAreaView>
     </>
@@ -455,6 +463,24 @@ const HeaderTitle = () => (
 
 const Label = ({children}) => <Text style={styles.label}>{children}</Text>;
 const styles = StyleSheet.create({
+  btn_shape: {
+    backgroundColor: "rgba(178,108,233,1)",
+    borderRadius: 10,
+    width: "50%",
+    height: 40,
+    marginTop: 10,
+    justifyContent: "center",
+  },
+  logout: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  btn_text: {
+    color: "rgba(255,255,255,1)",
+    fontSize: 16,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
   container: {flex: 1},
   header: {
     paddingHorizontal: 5,
