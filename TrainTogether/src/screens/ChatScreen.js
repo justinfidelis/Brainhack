@@ -11,6 +11,33 @@ export default function ChatScreen({navigation}) {
                 </TouchableOpacity>
                 <Text style={styles.header}>Chat</Text>
             </SafeAreaView>
+            <UnreadMessageComponent name={'George'}/>
+            <MessageComponent name={'Joe'}/>
+            <MessageComponent name={'David'}/>
+            <MessageComponent name={'Peter'}/>
+        </View>
+    );
+}
+
+const MessageComponent = (props) => {
+    return (
+        <View style={styles.messageContainer}>
+            <View style={styles.profpic}>
+                <AntDesign name="user" size={40} color='white'></AntDesign>
+            </View>
+            <Text style={styles.messageText}>{props.name}</Text>
+        </View>
+    );
+}
+
+const UnreadMessageComponent = (props) => {
+    return (
+        <View style={styles.messageContainer}>
+            <View style={styles.profpic}>
+                <AntDesign name="user" size={40} color='white'></AntDesign>
+            </View>
+            <Text style={styles.messageText}>{props.name}</Text>
+            <View style={styles.unreadAlert}></View>
         </View>
     );
 }
@@ -35,4 +62,34 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingVertical: 10,
     },
+    messageContainer: {
+        height: '10%',
+        backgroundColor: 'white',
+        borderBottomWidth: 1,
+        borderBottomColor: 'black',
+        justifyContent: 'flexStart',
+        alignItems: 'center',
+        paddingLeft: 20,
+        paddingVertical: 10,
+        flexDirection: 'row'
+    },
+    profpic: {
+        backgroundColor: '#d3d3d3',
+        borderRadius: 50,
+        paddingVertical: 5,
+        paddingHorizontal: 5,
+        marginRight: 10
+    },
+    messageText: {
+        fontSize: 20
+    },
+    unreadAlert: {
+        backgroundColor: '#5579c6',
+        position: 'absolute',
+        right: 40,
+        marginVertical: 28,
+        height: 10,
+        width: 10,
+        borderRadius: 10
+    }
 });
