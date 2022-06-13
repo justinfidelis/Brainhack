@@ -97,7 +97,7 @@ import {
 } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
 import * as Progress from 'react-native-progress';
-const headerImage = require('../../assets/header.jpg');
+const headerImage = require('../../assets/army_profile.jpg');
 const notification = require('../../assets/Notification.png');
 const banner = require('../../assets/BG.png');
 const fire = require('../../assets/fire.png');
@@ -125,7 +125,7 @@ const App = () => {
           <Banner />
         </View>
         <View style={{marginHorizontal: '3%'}}>
-          <Label>Your Activities</Label>
+          <Label>Your Recommended Workouts</Label>
           <View style={{flexDirection: 'row'}}>
             {data.map((item, index) => (
               <Card data={item} index={index} />
@@ -137,7 +137,7 @@ const App = () => {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-            <Label>Fitness Video</Label>
+            <Label>Follow-Along Fitness</Label>
             <Text
               style={{
                 fontFamily: 'Poppins-Regular',
@@ -154,7 +154,6 @@ const App = () => {
           </View>
         </View>
       </SafeAreaView>
-      <BottomTab />
     </>
   );
 };
@@ -414,10 +413,10 @@ const Banner = () => (
               style={styles.fireImage}
             />
           </View>
-          <Text style={styles.offer}>limited offer</Text>
+          <Text style={styles.offer}>IPPT Date</Text>
         </View>
-        <OfferText>30% Discount</OfferText>
-        <OfferText>Flash Sales</OfferText>
+        <OfferText>12/12/2022</OfferText>
+        <OfferText>Maju Camp</OfferText>
       </View>
     </ImageBackground>
     <Image source={model} style={styles.model} resizeMode="contain" />
@@ -435,8 +434,8 @@ const ImageContainer = ({image, height = '100%', width = '100%'}) => (
 );
 const HeaderTitle = () => (
   <View style={styles.title}>
-    <Text style={styles.bigTitle}>Hi, Jane</Text>
-    <Text style={styles.smallTitle}>Aug 12, 2021</Text>
+    <Text style={styles.bigTitle}>Hi, John</Text>
+    <Text style={styles.smallTitle}>13 Jun, 2022</Text>
   </View>
 );
 
@@ -512,7 +511,7 @@ const data = [
     darkColor: '#aceafc',
   },
   {
-    name: 'Yoga',
+    name: 'Core',
     status: 85,
     image: yoga,
     lightColor: '#dad5fe',
