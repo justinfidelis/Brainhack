@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import React,{ useState, useEffect } from 'react';
 import AppNavigation from './src/navigation/AppNavigation';
 import LoginScreen from "react-native-login-screen";
+import { useFonts } from 'expo-font';
 
 /*export default function App() {
   const [viewIndex, setViewIndex] = useState(0)
@@ -27,6 +28,14 @@ import LoginScreen from "react-native-login-screen";
 } */
 
 export default function App() {
+  const [loaded] = useFonts({
+    HelveticaNeue: require('./assets/fonts/HelveticaNeue-Medium.ttf'),
+  });
+  
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <AppNavigation />
   )
