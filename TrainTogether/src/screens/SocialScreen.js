@@ -26,7 +26,9 @@ export default function SocialScreen({navigation}) {
 const renderUser = ({item}) => {
     return (
         <TouchableOpacity style={styles.userContainer}>
-            <AntDesign name="user" size={60} color='white'></AntDesign>
+            <View style={styles.profpic}>
+                <AntDesign name="user" size={60} color='white'></AntDesign>
+            </View>
             <Text style={styles.userInfo}>{item.name}</Text>
             <Text style={styles.userInfo}>Location: {item.location}</Text>
             <Text style={styles.userInfo}>IPPT goal: {item.goal}</Text>
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
     },
     userContainer: {
-        height: '90%',
+        height: '95%',
         paddingHorizontal: 20,
         paddingVertical: 20,
         backgroundColor: '#3d5a80',
@@ -65,6 +67,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginVertical: 10,
         marginHorizontal: 10
+    },
+    profpic: {
+        backgroundColor: '#d3d3d3',
+        borderRadius: 50,
+        paddingVertical: 5,
+        paddingHorizontal: 5
     },
     userInfo: {
         color: 'white',
