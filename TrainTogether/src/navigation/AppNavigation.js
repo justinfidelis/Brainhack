@@ -13,6 +13,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ChatScreen from '../screens/ChatScreen.js';
+import SignUpScreen from '../screens/SignUpScreen.js';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -83,6 +84,11 @@ const AppNavigation = () => {
           <Stack.Screen 
             name = "LogInScreen"
             component={LogInScreen} 
+            options={{headerShown: false}}
+          />
+          <Stack.Screen 
+            name = "SignUpScreen"
+            component={SignUpScreen} 
             options={{headerShown: false}}
           />
           <Stack.Screen
