@@ -9,9 +9,9 @@ export default function LogInScreen({navigation}) {
         <LoginScreen
         logoImageSource={require("../../assets/traintogether.png")} 
         onLoginPress={() => navigation.navigate('TabNavigator')} 
-        onSignupPress={() => {}}
-        onEmailChange={(email) => {}}
-        onPasswordChange={(password) => {}}
+        onSignupPress={() => navigation.navigate('SignUpScreen')}
+        onEmailChange={(email: string) => {}}
+        onPasswordChange={(password: string) => {}}
       />
     )
 }
