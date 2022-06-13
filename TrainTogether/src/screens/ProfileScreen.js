@@ -1,8 +1,43 @@
-import React from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView } from "react-native";
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 import {Ionicons, MaterialIcons} from '@expo/vector-icons'
+import * as ImagePicker from 'expo-image-picker';
 
 function ProfileScreen(props) {
+
+    const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
+    const [image, setImage] = useState(null);
+
+    useEffect(() => {
+        (async () => {
+          const cameraStatus = await Camera.requestPermissionsAsync();
+          setHasCameraPermission(cameraStatus.status === 'granted');
+    
+          const galleryStatus = await ImagePicker.requestMediaLibraryPermissionsAsync();
+          setHasGalleryPermission(galleryStatus.status === 'granted');
+    
+        })();
+      }, []);
+
+      const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+          mediaTypes: ImagePicker.MediaTypeOptions.Images,
+          allowsEditing: true,
+          aspect: [1, 1],
+          quality: 1,
+        });
+    
+        console.log(result);
+    
+        if (!result.cancelled) {
+          setImage(result.uri);
+        }
+      };
+
+      if (hasGalleryPermission === false) {
+        return <View />;
+      }
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -18,9 +53,11 @@ function ProfileScreen(props) {
                         <MaterialIcons name="chat" size={18} color="#DFD8C8"></MaterialIcons>
                     </View>
                     <View style={styles.active}></View>
-                    <View style={styles.add}>
+                    <TouchableOpacity style={styles.add}
+                                      onPress={() => pickImage()}>
+                                    {image && <Image source={{uri: image}} style={{flex:1}}/>}
                         <Ionicons name="ios-add" size={48} color="#DFD8C8" style={{ marginTop: 6, marginLeft: 2 }}></Ionicons>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.infoContainer}>
@@ -91,7 +128,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff"
     },
     text: {
-        fontFamily: "HelveticalNeue",
+        //fontFamily: "HelveticalNeue",
         color: "#52575D"
     },
     image: {
