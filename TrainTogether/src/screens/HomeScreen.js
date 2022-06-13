@@ -1,86 +1,522 @@
-import { View, Text, SafeAreaView, StyleSheet, TextInput} from 'react-native';
-import React, { useState } from 'react';
-import DatePicker from 'react-native-datepicker';
-export default function HomeScreen() {
-    const [date, setDate] = useState(new Date());
-    var todaydate = new Date();
-    const startDate  = new Date();
-  const diffTime = Math.abs(date - startDate);
-  const diffInDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-    return (
-        <SafeAreaView>
-           <Text style={styles.home}>Home</Text> 
-           <View style={styles.workout}>
-           </View>
-           <View style={styles.box}>
-               <Text style={styles.text}>Calorie counter</Text>
-           </View>
-           <View style={styles.box}>
-               <Text style={styles.text}>Days to IPPT</Text>
-               <DatePicker
-          style={styles.datePickerStyle}
-          date={date} //initial date from state
-          mode="date" //The enum of date, datetime and time
-          placeholder="select date"
-          format="DD-MM-YYYY"
-          minDate={todaydate}
-          maxDate="01-01-2200"
-          confirmBtnText="Confirm"
-          cancelBtnText="Cancel"
-          customStyles={{
-            dateIcon: {
-              //display: 'none',
-              position: 'absolute',
-              left: 0,
-              top: 4,
-              marginLeft: 0,
-            },
-            dateInput: {
-              marginLeft: 36,
-            },
-          }}
-          onDateChange={(date) => {
-            setDate(date);
-          }}
-        /> 
-            <Text style={styles.text}>{diffInDays}</Text>
-           </View>
-        </SafeAreaView>
-    ); 
+// import { View, Text, SafeAreaView, StyleSheet, TextInput} from 'react-native';
+// import React, { useState } from 'react';
+// import DatePicker from 'react-native-datepicker';
+// export default function HomeScreen() {
+//     const [date, setDate] = useState(new Date());
+//     var todaydate = new Date();
+//     const startDate  = new Date();
+//   const diffTime = Math.abs(date - startDate);
+//   const diffInDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+//     return (
+//         <SafeAreaView>
+//            <Text style={styles.home}>Home</Text> 
+//            <View style={styles.workout}>
+//            </View>
+//            <View style={styles.box}>
+//                <Text style={styles.text}>Calorie counter</Text>
+//            </View>
+//            <View style={styles.box}>
+//                <Text style={styles.text}>Days to IPPT</Text>
+//                <DatePicker
+//           style={styles.datePickerStyle}
+//           date={date} //initial date from state
+//           mode="date" //The enum of date, datetime and time
+//           placeholder="select date"
+//           format="DD-MM-YYYY"
+//           minDate={todaydate}
+//           maxDate="01-01-2200"
+//           confirmBtnText="Confirm"
+//           cancelBtnText="Cancel"
+//           customStyles={{
+//             dateIcon: {
+//               //display: 'none',
+//               position: 'absolute',
+//               left: 0,
+//               top: 4,
+//               marginLeft: 0,
+//             },
+//             dateInput: {
+//               marginLeft: 36,
+//             },
+//           }}
+//           onDateChange={(date) => {
+//             setDate(date);
+//           }}
+//         /> 
+//             <Text style={styles.text}>{diffInDays}</Text>
+//            </View>
+//         </SafeAreaView>
+//     ); 
  
-}
+// }
 
-const styles = StyleSheet.create({
-    home: {
-        color: 'black',
-        fontWeight: 'bold',
-        fontSize: 40,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        textAlign: 'center'
-        //fontFamily: 'Comfortaa_700Bold'
-    },
-    workout: {
-        backgroundColor: 'black',
-        width: 200,
-        height: 270,
-        borderRadius: 30,
-        marginLeft: 20,
-        marginTop: 30,
-        marginBottom: 40
+// const styles = StyleSheet.create({
+//     home: {
+//         color: 'black',
+//         fontWeight: 'bold',
+//         fontSize: 40,
+//         paddingBottom: 10,
+//         paddingLeft: 10,
+//         textAlign: 'center'
+//         //fontFamily: 'Comfortaa_700Bold'
+//     },
+//     workout: {
+//         backgroundColor: 'black',
+//         width: 200,
+//         height: 270,
+//         borderRadius: 30,
+//         marginLeft: 20,
+//         marginTop: 30,
+//         marginBottom: 40
         
-    },
-    box: {
-        backgroundColor: 'darkgrey',
-        width: 200,
-        height: 130,
-        borderRadius: 30,
-        marginLeft: 20,
-        marginTop: 30 
-    },
-    text: {
+//     },
+//     box: {
+//         backgroundColor: 'darkgrey',
+//         width: 200,
+//         height: 130,
+//         borderRadius: 30,
+//         marginLeft: 20,
+//         marginTop: 30 
+//     },
+//     text: {
+//         alignSelf: 'center',
+//         fontWeight: 'bold',
+//         paddingTop: 10
+//     }
+// })
+
+import React from 'react';
+import {
+  Image,
+  ImageBackground,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import {LinearGradient} from 'expo-linear-gradient';
+import * as Progress from 'react-native-progress';
+const headerImage = require('../../assets/header.jpg');
+const notification = require('../../assets/Notification.png');
+const banner = require('../../assets/BG.png');
+const fire = require('../../assets/fire.png');
+const model = require('../../assets/model.png');
+const couple = require('../../assets/couple.jpg');
+const cycle = require('../../assets/cycle.png');
+const yoga = require('../../assets/yoga.png');
+const walk = require('../../assets/walk.png');
+const next = require('../../assets/next.png');
+const play = require('../../assets/play.png');
+const star = require('../../assets/Star.png');
+const book = require('../../assets/Book.png');
+const home = require('../../assets/Home.png');
+const heart = require('../../assets/H.png');
+const calendar = require('../../assets/Calender.png');
+const profile = require('../../assets/User.png');
+const plus = require('../../assets/Plus.png');
+
+const App = () => {
+  return (
+    <>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.screen}>
+          <Header />
+          <Banner />
+        </View>
+        <View style={{marginHorizontal: '3%'}}>
+          <Label>Your Activities</Label>
+          <View style={{flexDirection: 'row'}}>
+            {data.map((item, index) => (
+              <Card data={item} index={index} />
+            ))}
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+            <Label>Fitness Video</Label>
+            <Text
+              style={{
+                fontFamily: 'Poppins-Regular',
+                opacity: 0.5,
+                fontSize: 12,
+              }}>
+              View All
+            </Text>
+          </View>
+          <View style={{flexDirection: 'row'}}>
+            {data.map((item, index) => (
+              <VideoPlay index={index} />
+            ))}
+          </View>
+        </View>
+      </SafeAreaView>
+      <BottomTab />
+    </>
+  );
+};
+
+export default App;
+
+const BottomTab = () => (
+  <View
+    style={{
+      position: 'absolute',
+      bottom: 10,
+      margin: 10,
+      marginHorizontal: 25,
+      borderRadius: 20,
+      padding: 10,
+      // width: '100%',
+      backgroundColor: '#EDEDED',
+      flexDirection: 'row',
+      alignItems: 'center',
+    }}>
+    <BottomButton image={home} />
+    <BottomButton image={heart} />
+    <BottomButton
+      image={plus}
+      style={{
+        position: 'absolute',
+        left: '43%',
+        top: -25,
+        backgroundColor: '#fff',
+        padding: 8,
+        borderRadius: 20,
+      }}
+    />
+    <BottomButton />
+    <BottomButton image={calendar} />
+    <BottomButton image={profile} />
+  </View>
+);
+const BottomButton = ({image, style, imageStyle}) => (
+  <>
+    <View
+      style={[
+        {
+          flex: 1,
+          alignSelf: 'center',
+          alignItems: 'center',
+        },
+        style,
+      ]}>
+      <Image
+        source={image}
+        style={[
+          {
+            height: image === plus ? 40 : 20,
+            width: image === plus ? 40 : 20,
+          },
+          imageStyle,
+        ]}
+      />
+    </View>
+    {image === home && (
+      <View
+        style={{
+          width: '10%',
+          position: 'absolute',
+          height: 2,
+          backgroundColor: '#8860a2',
+          bottom: 0,
+          left: 25,
+        }}
+      />
+    )}
+  </>
+);
+
+const VideoPlay = () => (
+  <View
+    style={{
+      borderRadius: 15,
+      marginHorizontal: 12,
+      shadowOffset: {width: -5, height: 3},
+      shadowColor: 'grey',
+      shadowOpacity: 0.5,
+      shadowRadius: 3,
+      backgroundColor: '#fff',
+    }}>
+    <View style={{borderRadius: 10, overflow: 'hidden'}}>
+      <ImageBackground
+        source={couple}
+        style={{
+          height: 150,
+          width: 300,
+        }}>
+        <LinearGradient
+          locations={[0, 1.0]}
+          colors={['rgba(0,0,0,0.00)', 'rgba(0,0,0,0.60)']}
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+          }}></LinearGradient>
+      </ImageBackground>
+      <Text
+        style={{
+          position: 'absolute',
+          bottom: 5,
+          left: 10,
+          fontFamily: 'Poppins-Regular',
+          color: '#fff',
+        }}>
+        Transformation
+      </Text>
+      <View
+        style={{
+          position: 'absolute',
+          backgroundColor: '#fff',
+          padding: 5,
+          right: 10,
+          top: 10,
+          borderRadius: 5,
+        }}>
+        <Image source={star} style={{height: 10, width: 10}} />
+      </View>
+    </View>
+    <View
+      style={{
+        backgroundColor: 'white',
+        padding: 10,
+        borderRadius: 15,
+      }}>
+      <View
+        style={{
+          position: 'absolute',
+          backgroundColor: '#8860a2',
+          padding: 10,
+          right: 25,
+          top: -15,
+          borderRadius: 15,
+          zIndex: 3,
+        }}>
+        <Image source={play} style={{height: 10, width: 10}} />
+      </View>
+      <Text style={{fontFamily: 'Poppins-Regular'}}>
+        2 Hour Bulking Trainer
+      </Text>
+      <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        <Text style={{fontFamily: 'Poppins-Regular', fontSize: 12}}>
+          <Image source={book} style={{height: 15, width: 15}} />
+          {'   Beginner'}
+        </Text>
+        <Text
+          style={{
+            fontFamily: 'Poppins-Regular',
+            fontSize: 12,
+            color: '#8860a2',
+          }}>
+          45 Min
+        </Text>
+      </View>
+    </View>
+  </View>
+);
+
+const Card = ({data, index}) => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        height: index === 1 ? 180 : 150,
+        padding: 10,
         alignSelf: 'center',
-        fontWeight: 'bold',
-        paddingTop: 10
-    }
-})
+        backgroundColor: data.color,
+        justifyContent: 'space-between',
+        marginHorizontal: 8,
+        borderRadius: 10,
+        shadowColor: 'lightgrey',
+        shadowOffset: {width: -5, height: 5},
+        shadowOpacity: 0.5,
+        shadowRadius: 2,
+      }}>
+      <Image source={data.image} style={{height: 25, width: 25}} />
+      <View style={{alignSelf: 'center', margin: 5}}>
+        <Progress.Circle
+          size={50}
+          progress={data.status / 100}
+          showsText
+          unfilledColor="#ededed"
+          borderColor="#ededed"
+          color={data.darkColor}
+          direction="counter-clockwise"
+          fill="white"
+          strokeCap="round"
+          thickness={5}
+          style={{
+            shadowColor: 'grey',
+            shadowOffset: {width: 2, height: 2},
+            shadowOpacity: 0.1,
+            shadowRadius: 1,
+          }}
+          textStyle={{
+            fontSize: 16,
+            fontFamily: 'Poppins-Bold',
+            fontWeight: 'bold',
+          }}
+        />
+      </View>
+      <View>
+        <Text style={{fontSize: 10, fontFamily: 'Poppins-Light'}}>
+          {'Day     1'}
+        </Text>
+        <Text style={{fontSize: 10, fontFamily: 'Poppins-Light'}}>
+          {'Time   20 min'}
+        </Text>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}>
+        <Text style={{fontFamily: 'Poppins-Regular'}}>{data.name}</Text>
+        <View
+          style={{
+            backgroundColor: data.lightColor,
+            padding: 2,
+            borderRadius: 10,
+          }}>
+          <Image
+            source={next}
+            style={{
+              height: 12,
+              width: 12,
+              resizeMode: 'contain',
+            }}
+          />
+        </View>
+      </View>
+    </View>
+  );
+};
+const Header = () => (
+  <View style={styles.header}>
+    <ImageContainer image={headerImage} />
+    <HeaderTitle />
+    <ImageContainer image={notification} height={'50%'} width={'50%'} />
+  </View>
+);
+const Banner = () => (
+  <>
+    <ImageBackground style={styles.banner} source={banner}>
+      <View style={styles.bannerContainer}>
+        <View style={styles.rowLabel}>
+          <View style={styles.fireContainer}>
+            <Image
+              source={fire}
+              resizeMode="contain"
+              style={styles.fireImage}
+            />
+          </View>
+          <Text style={styles.offer}>limited offer</Text>
+        </View>
+        <OfferText>30% Discount</OfferText>
+        <OfferText>Flash Sales</OfferText>
+      </View>
+    </ImageBackground>
+    <Image source={model} style={styles.model} resizeMode="contain" />
+  </>
+);
+
+const OfferText = ({children}) => (
+  <Text style={styles.offerText}>{children}</Text>
+);
+
+const ImageContainer = ({image, height = '100%', width = '100%'}) => (
+  <View style={styles.imageContainer}>
+    <Image source={image} style={[{height, width}]} />
+  </View>
+);
+const HeaderTitle = () => (
+  <View style={styles.title}>
+    <Text style={styles.bigTitle}>Hi, Jane</Text>
+    <Text style={styles.smallTitle}>Aug 12, 2021</Text>
+  </View>
+);
+
+const Label = ({children}) => <Text style={styles.label}>{children}</Text>;
+const styles = StyleSheet.create({
+  container: {flex: 1},
+  header: {
+    paddingHorizontal: 5,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  title: {paddingHorizontal: 10, flex: 1, justifyContent: 'center'},
+  bigTitle: {fontSize: 16, fontFamily: 'Poppins-Medium'},
+  smallTitle: {fontSize: 10, fontFamily: 'Poppins-Regular', opacity: 0.6},
+  image: {height: '100%', width: '100%'},
+  fireImage: {height: 15, width: 15, alignSelf: 'center', margin: 5},
+  banner: {
+    marginTop: 20,
+    padding: 30,
+    resizeMode: 'contain',
+    borderRadius: 20,
+    overflow: 'hidden',
+    flexDirection: 'row',
+  },
+  bannerContainer: {flex: 1},
+  label: {fontFamily: 'Poppins-Medium', fontSize: 20, marginVertical: 10},
+  model: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    zIndex: 10,
+    height: '75%',
+    width: '50%',
+    transform: [{rotateY: '180deg'}],
+  },
+  imageContainer: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  screen: {margin: '3%'},
+  offer: {color: 'white', fontFamily: 'Poppins-Regular', fontSize: 10},
+  offerText: {color: 'white', fontSize: 16, fontFamily: 'Poppins-Regular'},
+
+  rowLabel: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  fireContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+const data = [
+  {
+    name: 'Cycling',
+    status: 85,
+    image: cycle,
+    lightColor: '#f8e4d9',
+    color: '#fcf1ea',
+    darkColor: '#fac5a4',
+  },
+  {
+    name: 'Walking',
+    status: 25,
+    image: walk,
+    lightColor: '#d7f0f7',
+    color: '#e8f7fc',
+    darkColor: '#aceafc',
+  },
+  {
+    name: 'Yoga',
+    status: 85,
+    image: yoga,
+    lightColor: '#dad5fe',
+    color: '#e7e3ff',
+    darkColor: '#8860a2',
+  },
+];
