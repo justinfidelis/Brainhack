@@ -90,9 +90,10 @@ import {
   Image,
   ImageBackground,
   SafeAreaView,
-  ScrollView,
+  TouchableOpacity,
   StyleSheet,
   Text,
+  Linking,
   View,
 } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
@@ -148,9 +149,9 @@ const App = () => {
             </Text>
           </View>
           <View style={{flexDirection: 'row'}}>
-            {data.map((item, index) => (
-              <VideoPlay index={index} />
-            ))}
+           
+              <VideoPlay />
+            
           </View>
         </View>
       </SafeAreaView>
@@ -229,6 +230,13 @@ const BottomButton = ({image, style, imageStyle}) => (
   </>
 );
 
+const callFun = () =>
+  {
+ 
+    Linking.openURL('https://www.youtube.com/watch?v=UoC_O3HzsH0&ab_channel=FraserWilson');
+ 
+  }
+
 const VideoPlay = () => (
   <View
     style={{
@@ -264,7 +272,7 @@ const VideoPlay = () => (
           fontFamily: 'Poppins-Regular',
           color: '#fff',
         }}>
-        Transformation
+        Endurance
       </Text>
       <View
         style={{
@@ -294,10 +302,12 @@ const VideoPlay = () => (
           borderRadius: 15,
           zIndex: 3,
         }}>
+       <TouchableOpacity activeOpacity = { .5 } onPress={ callFun }>
         <Image source={play} style={{height: 10, width: 10}} />
+        </TouchableOpacity>     
       </View>
       <Text style={{fontFamily: 'Poppins-Regular'}}>
-        2 Hour Bulking Trainer
+        10 Minutes Bodyweight Workout
       </Text>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <Text style={{fontFamily: 'Poppins-Regular', fontSize: 12}}>
@@ -401,6 +411,10 @@ const Header = () => (
     <ImageContainer image={notification} height={'50%'} width={'50%'} />
   </View>
 );
+const startDate  = new Date();
+const endDate = new Date('2022-12-12');
+const diffTime = Math.abs(endDate - startDate);
+const diffInDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 const Banner = () => (
   <>
     <ImageBackground style={styles.banner} source={banner}>
@@ -413,9 +427,9 @@ const Banner = () => (
               style={styles.fireImage}
             />
           </View>
-          <Text style={styles.offer}>IPPT Date</Text>
+          <Text style={styles.offer}>Next IPPT</Text>
         </View>
-        <OfferText>12/12/2022</OfferText>
+        <OfferText>{diffInDays} Days to 12/12/2022</OfferText>
         <OfferText>Maju Camp</OfferText>
       </View>
     </ImageBackground>
@@ -503,7 +517,7 @@ const data = [
     darkColor: '#fac5a4',
   },
   {
-    name: 'Walking',
+    name:'Running',
     status: 25,
     image: walk,
     lightColor: '#d7f0f7',
