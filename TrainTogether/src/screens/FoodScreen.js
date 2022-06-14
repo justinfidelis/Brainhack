@@ -80,7 +80,7 @@ const FoodScreen = ({navigation}) => {
   return (
     <View>
     
-        <View style={{marginTop:60, marginLeft: 20}}>
+        <View style={{marginTop:60}}>
             <TextInput style={styles.searchBar}
             placeholderTextColor= 'white'
             placeholder='Search For Food'
@@ -105,10 +105,11 @@ const styles = StyleSheet.create({
     color: 'white',
     borderRadius: 30,
     fontSize: 17,
-    width: 370,
+    //width: 370,
     height: 40,
     marginTop: 10,
     marginBottom: 20,
+    marginHorizontal: 10,
     justifyContent: "center",
     paddingLeft: 20
   }
