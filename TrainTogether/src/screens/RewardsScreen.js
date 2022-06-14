@@ -15,31 +15,35 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../../assets/colors/colors';
 
+const uss = require('../../assets/uss.jpeg');
+const safday = require('../../assets/safday.png');
+const safra = require('../../assets/safra.png');
+const swensens = require('../../assets/swensens.jpeg');
 const voucher = require('../../assets/voucher.png');
 
 export default function RewardsScreen() {
   const dataTopRewards = [
     {
       name: 'FnB vouchers',
-      icon: voucher,
+      icon: swensens,
       bgColor: colors.green,
       points: 150,
     },
     {
-      name: 'Mall vouchers',
-      icon: voucher,
+      name: 'SAFRA vouchers',
+      icon: safra,
       bgColor: colors.blue,
       points: 200,
     },
     {
-      name: 'Museum tickets',
-      icon: voucher,
+      name: 'SAF Day Rewards',
+      icon: safday,
       bgColor: colors.lime,
       points: 250,
     },
     {
-      name: 'ThemePark tickets',
-      icon: voucher,
+      name: 'USS tickets',
+      icon: uss,
       bgColor: colors.brown,
       points: 300,
     },
@@ -138,7 +142,7 @@ const BoxItemCategories = ({text, icon}) => {
           </View>
           <View style={{height: 20}}></View>
           <View style={styles.points}>
-            <Text style={styles.wrapperBottom}>{points}</Text>
+            <Text style={styles.wrapperBottom}>Points needed: {points}</Text>
             <TouchableOpacity>
               <AntDesign name="heart" size={20} color='white'></AntDesign>
             </TouchableOpacity>
@@ -233,7 +237,7 @@ const styles = StyleSheet.create({
   }),
   text: {
     paddingLeft: 10,
-    fontSize: 13,
+    fontSize: 15,
     fontFamily: 'PoppinsRegular'
   },
   points: {
@@ -242,7 +246,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   wrapperBottom: {
-    fontSize: 18,
+    fontSize: 10,
     fontFamily: 'PoppinsRegular'
   },
   image: {
