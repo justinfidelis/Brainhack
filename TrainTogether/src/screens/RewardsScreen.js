@@ -13,6 +13,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import colors from '../../assets/colors/colors';
 
 const voucher = require('../../assets/voucher.png');
 
@@ -21,25 +22,25 @@ export default function RewardsScreen() {
     {
       name: 'FnB vouchers',
       icon: voucher,
-      bgColor: 'rgba(227,206,243,0.5)',
+      bgColor: colors.green,
       points: 150,
     },
     {
       name: 'Mall vouchers',
       icon: voucher,
-      bgColor: 'rgba(255, 234, 232, 0.5)',
+      bgColor: colors.blue,
       points: 200,
     },
     {
       name: 'Museum tickets',
       icon: voucher,
-      bgColor: 'rgba(187, 208, 136, 0.5)',
+      bgColor: colors.lime,
       points: 250,
     },
     {
       name: 'ThemePark tickets',
       icon: voucher,
-      bgColor: 'rgba(140, 250, 145,0.5)',
+      bgColor: colors.brown,
       points: 300,
     },
   ];
@@ -67,28 +68,23 @@ export default function RewardsScreen() {
               showsHorizontalScrollIndicator={false}
               style={styles.scrollViewCategories}>
               <BoxItemCategories
-                icon={<Entypo name="pin" size={20} color='#dc143c'></Entypo>}
-                color="#f4c2c2"
+                icon={<Entypo name="pin" size={20} color={colors.blue}></Entypo>}
                 text="All"
               />
               <BoxItemCategories
-                icon={<Ionicons name="fast-food" size={20} color='#f6ad2d'></Ionicons>}
-                color="rgba(233, 255, 210, 0.5)"
+                icon={<Ionicons name="fast-food" size={20} color={colors.blue}></Ionicons>}
                 text="FnB"
               />
               <BoxItemCategories
-                icon={<Entypo name="shopping-bag" size={20} color='#65350f'></Entypo>}
-                color="#C4A484"
+                icon={<Entypo name="shopping-bag" size={20} color={colors.blue}></Entypo>}
                 text="Shopping"
               />
               <BoxItemCategories
-                icon={<Entypo name="tv" size={20} color='#7f7d9c'></Entypo>}
-                color="#f0ceff"
+                icon={<Entypo name="tv" size={20} color={colors.blue}></Entypo>}
                 text="Entertainment"
               />
               <BoxItemCategories
-                icon={<Entypo name="price-tag" size={20} color='#fee227'></Entypo>}
-                color="rgba(255, 250, 204, 0.5)"
+                icon={<Entypo name="price-tag" size={20} color={colors.blue}></Entypo>}
                 text="Others"
               />
             </ScrollView>
@@ -122,10 +118,10 @@ export default function RewardsScreen() {
   );
 };
 
-const BoxItemCategories = ({text, color, icon}) => {
+const BoxItemCategories = ({text, icon}) => {
     return (
       <TouchableOpacity style={styles.BICcontainer}>
-        <View style={styles.wrapperImg(color)}>{icon}</View>
+        <View style={styles.wrapperImg}>{icon}</View>
         <Text style={styles.BICtext}>{text}</Text>
       </TouchableOpacity>
     );
@@ -144,7 +140,7 @@ const BoxItemCategories = ({text, color, icon}) => {
           <View style={styles.points}>
             <Text style={styles.wrapperButtom}>{points}</Text>
             <TouchableOpacity>
-              <AntDesign name="heart" size={20} color='#C0C0C0'></AntDesign>
+              <AntDesign name="heart" size={20} color='white'></AntDesign>
             </TouchableOpacity>
           </View>
         </View>
@@ -164,8 +160,8 @@ const styles = StyleSheet.create({
   },
   pointText: {
       fontSize: 30,
-      fontWeight: 'bold',
-      color: '#45b6fe',
+      fontFamily: 'PoppinsMedium',
+      color: colors.green,
   },
   wrapperSearch: {
     height: 40,
@@ -178,7 +174,8 @@ const styles = StyleSheet.create({
   },
   titleCategories: {
     fontSize: 18,
-    color: '#45b6fe',
+    fontFamily: 'PoppinsMedium',
+    color: colors.green,
     padding: 20,
   },
   scrollViewCategories: {
@@ -191,12 +188,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   titleTopRewards: {
-    color: '#45b6fe',
+    color: colors.green,
+    fontFamily: 'PoppinsMedium',
     fontSize: 20,
   },
   textSeeAll: {
     color: 'black',
     fontSize: 12,
+    fontFamily: 'PoppinsRegular'
   },
   sectionBoxTopRewards: {
     flex: 1,
@@ -209,18 +208,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 17,
   },
-  wrapperImg: color => ({
+  wrapperImg: {
     height: 60,
     width: 60,
-    backgroundColor: color,
+    backgroundColor: colors.olive,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
-  }),
+    marginHorizontal: 15
+  },
   BICtext: {
     marginTop: 10,
     color: '#0B0B45',
     fontSize: 14,
+    fontFamily: 'PoppinsRegular'
   },
   container: bgColor => ({
     height: 160,
@@ -232,7 +233,8 @@ const styles = StyleSheet.create({
   }),
   text: {
     paddingLeft: 10,
-    fontSize: 16,
+    fontSize: 13,
+    fontFamily: 'PoppinsRegular'
   },
   points: {
     flexDirection: 'row',
@@ -241,6 +243,7 @@ const styles = StyleSheet.create({
   },
   wrapperButtom: {
     fontSize: 18,
+    fontFamily: 'PoppinsRegular'
   },
   image: {
     height: 110,

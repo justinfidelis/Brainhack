@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     header: {
         color: 'white',
         fontSize: 40,
-        fontWeight: 'bold',
+        fontFamily: 'PoppinsMedium',
         paddingLeft: 10,
         paddingVertical: 10,
     },
@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     messageText: {
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'PoppinsRegular'
     },
     unreadAlert: {
         backgroundColor: '#5579c6',
