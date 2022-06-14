@@ -42,7 +42,7 @@ const data =[
     {id:38, name:"Chips", cal:"100"},
 ]
 
-const getItem = (name, cal) => {
+const getItem = (name, cal, navigation) => {
 
     Alert.alert(name, "Calories: "+cal,
     [
@@ -51,11 +51,12 @@ const getItem = (name, cal) => {
         onPress: () => console.log("Cancel Pressed"),
         style: "cancel"
       },
-      { text: "ADD", onPress: () => console.log("Add Pressed") }
+      { text: "ADD", onPress: () => {console.log("Add Pressed");
+      navigation.navigate('Calorie')} }
     ]);
 
   }
-const FoodScreen = () => {
+const FoodScreen = ({navigation}) => {
 
     const [dataFromState, setData]=useState(data)
 
@@ -63,7 +64,7 @@ const FoodScreen = () => {
         return(
           
             <View style={{alignItems:"center"}}>
-                <Text style={{fontSize:15, color: "#290916", paddingBottom:8}} onPress={()=> getItem(item.name,item.cal)}>{item.name}</Text>
+                <Text style={{fontSize:15, color: "#290916", paddingBottom:8}} onPress={()=> getItem(item.name,item.cal, navigation)}>{item.name}</Text>
             </View>
         )
     }
