@@ -4,6 +4,7 @@ const userData = [
         name: 'Jacob',
         location: 'Newton',
         goal: 'Gold',
+        image: require('./dude1.png'),
 
     },
     {
@@ -11,6 +12,7 @@ const userData = [
         name: 'Lucas',
         location: 'Jurong',
         goal: 'Gold',
+        image: require('./dude2.png'),
 
     },
     {
@@ -18,6 +20,7 @@ const userData = [
         name: 'Ben',
         location: 'Bishan',
         goal: 'Bronze',
+        image: require('./dude3.png'),
 
     },
     {
@@ -25,6 +28,7 @@ const userData = [
         name: 'Nathan',
         location: 'Orchard',
         goal: 'Silver',
+        image: require('./dog1.png'),
 
     },
 ]
