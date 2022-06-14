@@ -16,6 +16,7 @@ import ChatScreen from '../screens/ChatScreen.js';
 import SignUpScreen from '../screens/SignUpScreen.js';
 import colors from '../../assets/colors/colors.js';
 
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 

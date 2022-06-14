@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // import { View, Text, SafeAreaView, StyleSheet, TextInput} from 'react-native';
 // import React, { useState } from 'react';
 // import DatePicker from 'react-native-datepicker';
@@ -47,6 +48,62 @@
 //            </View>
 //         </SafeAreaView>
 //     ); 
+=======
+import { View, Text, SafeAreaView, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import React, { useState } from 'react';
+import DatePicker from 'react-native-datepicker';
+export default function HomeScreen({navigation}) {
+    const [date, setDate] = useState(new Date());
+    var todaydate = new Date();
+    const startDate  = new Date();
+  const diffTime = Math.abs(date - startDate);
+  const diffInDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return (
+        <SafeAreaView>
+           <Text style={styles.home}>Home</Text> 
+           <View style={styles.workout}>
+           </View>
+           <View style={styles.box} >
+               <Text style={styles.text}>Calorie counter</Text>
+               
+           </View>
+           <TouchableOpacity style={styles.button}
+                        onPress={() => navigation.navigate('RecordScreen')}>
+        <Text>records</Text>
+      </TouchableOpacity>
+           <View style={styles.box}>
+               <Text style={styles.text}>Days to IPPT</Text>
+               <DatePicker
+          style={styles.datePickerStyle}
+          date={date} //initial date from state
+          mode="date" //The enum of date, datetime and time
+          placeholder="select date"
+          format="DD-MM-YYYY"
+          minDate={todaydate}
+          maxDate="01-01-2200"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              //display: 'none',
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0,
+            },
+            dateInput: {
+              marginLeft: 36,
+            },
+          }}
+          onDateChange={(date) => {
+            setDate(date);
+          }}
+        /> 
+            <Text style={styles.text}>{diffInDays}</Text>
+           </View>
+        </SafeAreaView>
+    ); 
+>>>>>>> Stashed changes
  
 // }
 
