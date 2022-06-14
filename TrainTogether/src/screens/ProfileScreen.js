@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 import {Ionicons, MaterialIcons} from '@expo/vector-icons'
 import * as ImagePicker from 'expo-image-picker';
+import colors from '../../assets/colors/colors.js';
 
 
 function ProfileScreen() {
@@ -51,15 +52,15 @@ function ProfileScreen() {
                     {image && <Image source={{uri: image}} style={{width: 200, height: 200, borderRadius: 100}} />}
                     </View>
                     <View style={styles.dm}>
-                        <MaterialIcons name="chat" size={18} color="#DFD8C8"></MaterialIcons>
+                        <MaterialIcons name="chat" size={18} color={colors.lime}></MaterialIcons>
                     </View>
                     {/*<View style={styles.active}></View>*/}
                     <TouchableOpacity style={styles.active}>
-                        <Ionicons name="camera-outline" size={48} color="#DFD8C8" style={{ alignItems: 'center', marginTop: 3, marginLeft: 5}}></Ionicons>
+                        <Ionicons name="camera-outline" size={48} color={colors.lime} style={{ alignItems: 'center', marginTop: 3, marginLeft: 5}}></Ionicons>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.add}
                                       onPress={() => pickImage()}>
-                        <Ionicons name="ios-add" size={48} color="#DFD8C8" style={{ marginTop: 5, marginLeft: 4 }}></Ionicons>
+                        <Ionicons name="ios-add" size={48} color={colors.lime} style={{ marginTop: 5, marginLeft: 4 }}></Ionicons>
                     </TouchableOpacity>
                     
                 </View>
@@ -74,7 +75,7 @@ function ProfileScreen() {
                         <Text style={[styles.text, { fontSize: 24 }]}>10</Text>
                         <Text style={[styles.text, styles.subText]}>Workouts Done</Text>
                     </View>
-                    <View style={[styles.statsBox, { borderColor: "#DFD8C8", borderLeftWidth: 1, borderRightWidth: 1 }]}>
+                    <View style={[styles.statsBox, { borderColor: colors.lime, borderLeftWidth: 1, borderRightWidth: 1 }]}>
                         <Text style={[styles.text, { fontSize: 24 }]}>25</Text>
                         <Text style={[styles.text, styles.subText]}>Followers</Text>
                     </View>
@@ -97,8 +98,8 @@ function ProfileScreen() {
                         </View>
                     </ScrollView>
                     <View style={styles.mediaCount}>
-                        <Text style={[styles.text, { fontSize: 24, color: "#DFD8C8", fontWeight: "300" }]}>2</Text>
-                        <Text style={[styles.text, { fontSize: 12, color: "#DFD8C8", textTransform: "uppercase" }]}>Goals</Text>
+                        <Text style={[styles.text, { fontSize: 24, color: colors.lime, fontWeight: "300" }]}>2</Text>
+                        <Text style={[styles.text, { fontSize: 12, color: colors.lime, textTransform: "uppercase" }]}>Goals</Text>
                     </View>
                 </View>
                 <Text style={[styles.subText, styles.recent]}>Recent Activity</Text>
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff"
     },
     text: {
-        //fontFamily: "HelveticalNeue",
+        fontFamily: "PoppinsRegular",
         color: "#52575D"
     },
     image: {
@@ -150,7 +151,8 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: "#AEB5BC",
         textTransform: "uppercase",
-        fontWeight: "500"
+        fontWeight: "500",
+        fontFamily: 'PoppinsRegular'
     },
     profileImage: {
         width: 200,
@@ -160,7 +162,7 @@ const styles = StyleSheet.create({
         overflow: "hidden"
     },
     dm: {
-        backgroundColor: "#41444B",
+        backgroundColor: colors.olive,
         position: "absolute",
         top: 20,
         width: 40,
@@ -170,7 +172,7 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     active: {
-        backgroundColor: '#41444B', //"#34FFB9"
+        backgroundColor: colors.olive, //"#34FFB9"
         position: "absolute",
         bottom: 28,
         top: 140,
@@ -181,7 +183,7 @@ const styles = StyleSheet.create({
         borderRadius: 30
     },
     add: {
-        backgroundColor: "#41444B",
+        backgroundColor: colors.olive,
         position: "absolute",
         bottom: 0,
         right: 0,
@@ -213,7 +215,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     mediaCount: {
-        backgroundColor: "#41444B",
+        backgroundColor: colors.olive,
         position: "absolute",
         top: "50%",
         marginTop: -50,
@@ -240,7 +242,7 @@ const styles = StyleSheet.create({
         marginBottom: 16
     },
     activityIndicator: {
-        backgroundColor: "#CABFAB",
+        backgroundColor: colors.lime,
         padding: 4,
         height: 12,
         width: 12,
