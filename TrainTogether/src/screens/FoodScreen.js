@@ -91,6 +91,7 @@ const FoodScreen = () => {
         data={dataFromState}
         renderItem={item}
         keyExtractor={(item, index) => index.toString()}
+        style={{marginBottom: 20}}
         //extraData={selectedId}
       />
     </ScrollView>
