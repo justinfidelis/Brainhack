@@ -1,5 +1,6 @@
 # Brainhack
 A social fitness app to help NS men returning for reservice upkeep their physical health to manage IPPT.
+![image](https://user-images.githubusercontent.com/82921640/173605571-9b88403f-0fff-4e24-882f-7f1164de0be0.png)
 
-![image](https://user-images.githubusercontent.com/82921640/173603463-ef002e0d-150a-4155-84d0-52eb322e0a41.png) 
-![image](https://user-images.githubusercontent.com/82921640/173603703-f36fdc9b-4e10-4f9b-b0ff-0b9f1cf8164e.png)
+Connect and chat with friends to train together to refeem points to exclusive in-app prizes!
+![image](https://user-images.githubusercontent.com/82921640/173605613-b4f28474-9e67-40be-96c3-dfaa0c8da723.png)
