@@ -93,7 +93,7 @@ export default function RewardsScreen() {
               />
             </ScrollView>
           </View>
-          <View style={{backgroundColor: 'white', height: 24}}></View>
+          <View style={{height: 24}}></View>
 
           <View>
             <View style={styles.wrapperHeadTopRewards}>
@@ -154,7 +154,7 @@ const BoxItemCategories = ({text, icon}) => {
 
 
 const styles = StyleSheet.create({
-  flex1: {flex: 1, backgroundColor: 'white'},
+  flex1: {flex: 1},
   wrapperHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',

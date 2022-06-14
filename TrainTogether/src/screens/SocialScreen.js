@@ -7,7 +7,7 @@ import colors from '../../assets/colors/colors.js';
 
 export default function SocialScreen({navigation}) {
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+        <SafeAreaView style={{flex: 1}}>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Text style={styles.headerText}>Connect</Text>
                 <TouchableOpacity style={styles.chatButton} onPress={() => navigation.navigate('Chat')}>
