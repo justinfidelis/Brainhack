@@ -142,7 +142,7 @@ const BoxItemCategories = ({text, color, icon}) => {
           </View>
           <View style={{height: 20}}></View>
           <View style={styles.points}>
-            <Text style={styles.wrapperButtom}>${points}</Text>
+            <Text style={styles.wrapperButtom}>{points}</Text>
             <TouchableOpacity>
               <AntDesign name="heart" size={20} color='#C0C0C0'></AntDesign>
             </TouchableOpacity>
