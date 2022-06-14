@@ -509,7 +509,6 @@ const styles = StyleSheet.create({
     zIndex: 10,
     height: '75%',
     width: '50%',
-    transform: [{rotateY: '180deg'}],
   },
   imageContainer: {
     height: 50,
@@ -520,8 +519,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   screen: {margin: '3%'},
-  offer: {color: 'white', fontFamily: 'PoppinsRegular', fontSize: 10},
-  offerText: {color: 'white', fontSize: 16, fontFamily: 'PoppinsRegular'},
+  offer: {color: 'white', fontFamily: 'PoppinsRegular', fontSize: 14},
+  offerText: {color: 'white', fontSize: 14, fontFamily: 'PoppinsMedium'},
 
   rowLabel: {
     flexDirection: 'row',
