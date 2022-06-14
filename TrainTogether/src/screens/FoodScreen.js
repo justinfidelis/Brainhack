@@ -37,7 +37,8 @@ const FoodScreen = () => {
       style={{
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: 200,
       }}>
         <View>
             <TextInput 
