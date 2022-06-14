@@ -33,6 +33,7 @@ export default function PlannerScreen({navigation}) {
           color: "rgba(255,255,255,1)",
           fontSize: 22,
           alignSelf: "center",
+          fontFamily: "PoppinsBold"
         },
         progress_container: {
           flexDirection: "row",
@@ -51,12 +52,15 @@ export default function PlannerScreen({navigation}) {
           color: "#121212",
           alignSelf: "center",
           marginVertical: 4,
+          fontFamily: "PoppinsMedium",
+          fontSize: 18
         },
         progress_value: {
           color: "#121212",
-          fontSize: 20,
+          fontSize: 15,
           fontWeight: "bold",
           alignSelf: "center",
+          fontFamily: "PoppinsRegular"
         },
         exercise_container: {
           width: "95%",
@@ -80,14 +84,16 @@ export default function PlannerScreen({navigation}) {
           borderRadius: 10,
           width: "50%",
           height: 40,
-          marginTop: 40,
+          marginTop: 30,
           justifyContent: "center",
+
         },
         btn_text: {
           color: "rgba(255,255,255,1)",
           fontSize: 16,
           textAlign: "center",
           fontWeight: "bold",
+          fontFamily: "PoppinsMedium"
         },
       });
 
@@ -118,7 +124,7 @@ export default function PlannerScreen({navigation}) {
 
             }}
           >
-            <Text style={{ fontSize: 25, fontWeight: "bold" }}>{x.name}</Text>
+            <Text style={{ fontSize: 25, fontWeight: "bold", fontFamily: "PoppinsRegular" }}>{x.name}</Text>
             <Text>{"Rate: " + x.duration}</Text>
             <Text>{"Points: " + x.points}</Text>
           </View>

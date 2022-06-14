@@ -64,7 +64,7 @@ const FoodScreen = ({navigation}) => {
         return(
           
             <View style={{alignItems:"center"}}>
-                <Text style={{fontSize:15, color: "#290916", paddingBottom:8}} onPress={()=> getItem(item.name,item.cal, navigation)}>{item.name}</Text>
+                <Text style={{fontSize:15, color: "#290916", paddingBottom:8, fontFamily:"PoppinsMedium"}} onPress={()=> getItem(item.name,item.cal, navigation)}>{item.name}</Text>
             </View>
         )
     }
@@ -101,6 +101,7 @@ const FoodScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   searchBar: {
+    fontFamily: "PoppinsMedium",
     backgroundColor: '#8d967d',
     color: 'white',
     borderRadius: 30,
