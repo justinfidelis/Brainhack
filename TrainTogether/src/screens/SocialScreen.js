@@ -1,24 +1,67 @@
-import React from 'react';
+import React,{ useState, useEffect } from 'react';
 import {View, SafeAreaView, StyleSheet, Text, Image, TouchableOpacity, FlatList} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import userData from '../../assets/userData.js';
 import colors from '../../assets/colors/colors.js';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 export default function SocialScreen({navigation}) {
+    const [viewType, setViewType] = useState(0)
+
     return (
         <SafeAreaView style={{flex: 1}}>
             <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                 <Text style={styles.headerText}>Connect</Text>
-                <TouchableOpacity style={styles.chatButton} onPress={() => navigation.navigate('Chat')}>
-                    <Ionicons name="chatbubble" size={30} color='white'></Ionicons>
-                </TouchableOpacity>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                    <TouchableOpacity style={viewType === 0 ? styles.viewButtonSelected : styles.viewButtonUnselected} onPress={() => setViewType(0)}>
+                        <Ionicons name="map" size={30} color='white'></Ionicons>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={viewType === 1 ? styles.viewButtonSelected : styles.viewButtonUnselected} onPress={() => setViewType(1)}>
+                        <Ionicons name="albums" size={30} color='white'></Ionicons>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.chatButton} onPress={() => navigation.navigate('Chat')}>
+                        <Ionicons name="chatbubble" size={30} color='white'></Ionicons>
+                    </TouchableOpacity>
+                </View>
             </View>
-            <FlatList
+            {viewType === 0 ? 
+            (<MapView
+                provider={PROVIDER_GOOGLE}
+                style={styles.map}
+                region={{
+                    latitude: 1.43714,
+                    longitude: 103.78799,
+                    latitudeDelta: 0.04,
+                    longitudeDelta: 0.03
+                }}
+            >
+                <Marker 
+                    coordinate={{latitude: 1.43835, longitude: 103.79014}}
+                    image={require('./../../assets/selfpin.png')}
+                />
+                <Marker 
+                    coordinate={{latitude: 1.43632, longitude: 103.77908}}
+                    image={require('./../../assets/dude1pin.png')}
+                />
+                <Marker 
+                    coordinate={{latitude: 1.44356, longitude: 103.79803}}
+                    image={require('./../../assets/dude2pin.png')}
+                />
+                <Marker 
+                    coordinate={{latitude: 1.45235, longitude: 103.77949}}
+                    image={require('./../../assets/dude3pin.png')}
+                />
+                <Marker 
+                    coordinate={{latitude: 1.40178, longitude: 103.80715}}
+                    image={require('./../../assets/dog1pin.png')}
+                />
+            </MapView>) :
+            (<FlatList
                 data={userData}
                 renderItem={renderUser}
                 horizontal
                 showsHorizontalScrollIndicator={false}
-            />
+            />)}
         </SafeAreaView>
     );
 }
@@ -48,6 +91,26 @@ const renderUser = ({item}) => {
 
 const styles = StyleSheet.create({
     chatButton: {
+        backgroundColor: colors.brown,
+        borderRadius: 10,
+        width: 40,
+        height: 40,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 20
+    },
+    viewButtonSelected: {
+        backgroundColor: "#77614F",
+        borderRadius: 10,
+        width: 40,
+        height: 40,
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 20
+    },
+    viewButtonUnselected: {
         backgroundColor: colors.brown,
         borderRadius: 10,
         width: 40,
@@ -107,5 +170,11 @@ const styles = StyleSheet.create({
         width: undefined,
         height: undefined,
         borderRadius: 100,
+    },
+    map: {
+        ...StyleSheet.absoluteFillObject,
+        top: 60,
+        left: 1
+
     }
 });
