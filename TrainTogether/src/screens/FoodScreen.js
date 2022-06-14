@@ -78,7 +78,7 @@ const FoodScreen = ({navigation}) => {
     }
 
   return (
-    <ScrollView>
+    <View>
     
         <View style={{marginTop:60, marginLeft: 20}}>
             <TextInput style={styles.searchBar}
@@ -95,7 +95,7 @@ const FoodScreen = ({navigation}) => {
         keyExtractor={(item, index) => index.toString()}
         //extraData={selectedId}
       />
-    </ScrollView>
+    </View>
   )
 }
 
