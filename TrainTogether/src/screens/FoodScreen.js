@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
-import { Alert,Text, View, FlatList, TouchableHighlight, TextInput, ScrollView, StyleSheet, Image } from 'react-native';
+import { Alert,Text, View, SafeAreaView, FlatList, TouchableOpacity, TextInput, ScrollView, StyleSheet, Image } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const data =[
     {id:1, name:"Big Mac", cal:"540"},
@@ -78,24 +79,30 @@ const FoodScreen = ({navigation}) => {
     }
 
   return (
-    <View>
+    <SafeAreaView>
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Calorie')}>
+            <AntDesign name="arrowleft" size={40} color='black'></AntDesign>
+        </TouchableOpacity>
     
-        <View style={{marginTop:60}}>
-            <TextInput style={styles.searchBar}
+        <TextInput style={styles.searchBar}
             placeholderTextColor= 'white'
             placeholder='Search For Food'
             onChangeText={(input)=>{
                 searchName(input)
             }}
-            />
-        </View>
+        />
+      </View>
+
       <FlatList
         data={dataFromState}
         renderItem={item}
         keyExtractor={(item, index) => index.toString()}
         //extraData={selectedId}
       />
-    </View>
+
+    </SafeAreaView>
+
   )
 }
 
@@ -106,14 +113,18 @@ const styles = StyleSheet.create({
     color: 'white',
     borderRadius: 30,
     fontSize: 17,
-    //width: 370,
+    width: '75%',
     height: 40,
-    marginTop: 10,
-    marginBottom: 20,
     marginHorizontal: 10,
+    marginVertical: 20,
     justifyContent: "center",
     paddingLeft: 20
-  }
+  },
+  backButton: {
+    marginHorizontal: 10,
+    marginVertical: 20,
+    alignSelf: 'flex-start'
+  },
 })
   
 
