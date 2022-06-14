@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 import {Ionicons, MaterialIcons} from '@expo/vector-icons'
 import * as ImagePicker from 'expo-image-picker';
+import { Camera } from 'expo-camera';
+import { NavigationContext } from 'react-navigation';
 
-function ProfileScreen(props) {
-
+function ProfileScreen({navigation}) {
+    //const [hasCameraPermission, setHasCameraPermission] = useState(null);
+    //const [camera, setCamera] = useState(null);
     const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
     const [image, setImage] = useState(null);
 
@@ -18,6 +21,7 @@ function ProfileScreen(props) {
     
         })();
       }, []);
+
 
       const pickImage = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -37,7 +41,7 @@ function ProfileScreen(props) {
       if (hasGalleryPermission === false) {
         return <View />;
       }
-
+      
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -47,17 +51,20 @@ function ProfileScreen(props) {
 
                 <View style={{ alignSelf: "center" }}>
                     <View style={styles.profileImage}>
-                        <Image source={require("../../assets/army_profile.jpg")} style={styles.image} resizeMode="center"></Image>
+                    {image && <Image source={{uri: image}} style={{width: 200, height: 200, borderRadius: 100}} />}
                     </View>
                     <View style={styles.dm}>
                         <MaterialIcons name="chat" size={18} color="#DFD8C8"></MaterialIcons>
                     </View>
-                    <View style={styles.active}></View>
+                    {/*<View style={styles.active}></View>*/}
+                    <TouchableOpacity style={styles.active}>
+                        <Ionicons name="camera-outline" size={48} color="#DFD8C8" style={{ alignItems: 'center', marginTop: 3, marginLeft: 5}}></Ionicons>
+                    </TouchableOpacity>
                     <TouchableOpacity style={styles.add}
                                       onPress={() => pickImage()}>
-                                    {image && <Image source={{uri: image}} style={{flex:1}}/>}
-                        <Ionicons name="ios-add" size={48} color="#DFD8C8" style={{ marginTop: 6, marginLeft: 2 }}></Ionicons>
+                        <Ionicons name="ios-add" size={48} color="#DFD8C8" style={{ marginTop: 5, marginLeft: 4 }}></Ionicons>
                     </TouchableOpacity>
+                    
                 </View>
 
                 <View style={styles.infoContainer}>
@@ -152,6 +159,7 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
         borderRadius: 100,
+        backgroundColor: 'rgb(225, 227, 237)',
         overflow: "hidden"
     },
     dm: {
@@ -165,14 +173,15 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     active: {
-        backgroundColor: "#34FFB9",
+        backgroundColor: '#41444B', //"#34FFB9"
         position: "absolute",
         bottom: 28,
+        top: 140,
         left: 10,
-        padding: 4,
-        height: 20,
-        width: 20,
-        borderRadius: 10
+        //marginTop: 100,
+        height: 60,
+        width: 60,
+        borderRadius: 30
     },
     add: {
         backgroundColor: "#41444B",
