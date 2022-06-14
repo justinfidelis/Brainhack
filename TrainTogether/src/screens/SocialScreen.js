@@ -173,8 +173,6 @@ const styles = StyleSheet.create({
     },
     map: {
         ...StyleSheet.absoluteFillObject,
-        top: 60,
-        left: 1
-
+        top: "8%",
     }
 });
