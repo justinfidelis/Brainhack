@@ -100,7 +100,9 @@ const FoodScreen = ({navigation}) => {
         keyExtractor={(item, index) => index.toString()}
         //extraData={selectedId}
       />
+
     </SafeAreaView>
+
   )
 }
 
