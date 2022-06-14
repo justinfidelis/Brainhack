@@ -79,7 +79,7 @@ const FoodScreen = () => {
   return (
     <ScrollView>
     
-        <View>
+        <View style={{marginTop:60, marginLeft: 20}}>
             <TextInput style={{fontSize:20}}
             placeholder='Search For Food'
             onChangeText={(input)=>{
