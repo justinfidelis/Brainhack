@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import { Alert,Text, View, FlatList, TouchableHighlight, TextInput, ScrollView } from 'react-native';
+import { Alert,Text, View, FlatList, TouchableHighlight, TextInput, ScrollView, StyleSheet, Image } from 'react-native';
 
 const data =[
     {id:1, name:"Big Mac", cal:"540"},
@@ -80,7 +80,8 @@ const FoodScreen = () => {
     <ScrollView>
     
         <View style={{marginTop:60, marginLeft: 20}}>
-            <TextInput style={{fontSize:20}}
+            <TextInput style={styles.searchBar}
+            placeholderTextColor= 'white'
             placeholder='Search For Food'
             onChangeText={(input)=>{
                 searchName(input)
@@ -91,10 +92,26 @@ const FoodScreen = () => {
         data={dataFromState}
         renderItem={item}
         keyExtractor={(item, index) => index.toString()}
-        style={{marginBottom: 20}}
         //extraData={selectedId}
       />
     </ScrollView>
   )
 }
+
+const styles = StyleSheet.create({
+  searchBar: {
+    backgroundColor: '#8d967d',
+    color: 'white',
+    borderRadius: 30,
+    fontSize: 17,
+    width: 370,
+    height: 40,
+    marginTop: 10,
+    marginBottom: 20,
+    justifyContent: "center",
+    paddingLeft: 20
+  }
+})
+  
+
 export default FoodScreen;
