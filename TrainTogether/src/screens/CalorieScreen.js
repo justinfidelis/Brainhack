@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  StyleSheet,
+  StyleSheet, TouchableOpacity,
   View,Button,Text, Dimensions, Image, ImageBackground, Pressable
 } from 'react-native';
 import RadioButtonRN from 'radio-buttons-react-native';
@@ -9,6 +9,7 @@ import Dialog from 'react-native-dialog';
 import {
   ProgressChart,
 } from "react-native-chart-kit";
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const deviceWidth= Math.round(Dimensions.get('window').width);
 
@@ -46,6 +47,9 @@ export default class CalorieScreen extends React.Component{
   render(){
     return(
       <View style={styles.container}>
+        <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.navigate('TabNavigator')}>
+              <AntDesign name="arrowleft" size={30} color='black'></AntDesign>
+        </TouchableOpacity>
         <View style={styles.cardContainer}>
           <ImageBackground style={styles.imageStyle} source= {require('../../assets/BG.png')}>
           <Image style={styles.imageStyle1} source= {require('../../assets/food_tracker.png')}/>
@@ -97,6 +101,12 @@ export default class CalorieScreen extends React.Component{
 }
 
 const styles=StyleSheet.create({
+  backButton: {
+    paddingLeft: 10,
+    paddingRight: 25,
+    paddingVertical: 20,
+    alignSelf: 'flex-start'
+  },
   container:{
     //flex:10,
     //justifyContent:"space-between",
