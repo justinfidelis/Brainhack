@@ -141,7 +141,7 @@ const App = ({navigation}) => {
             <Label>Follow-Along Fitness</Label>
             <Text
               style={{
-                fontFamily: 'Poppins-Regular',
+                fontFamily: 'PoppinsRegular',
                 opacity: 0.5,
                 fontSize: 12,
               }}>
@@ -277,7 +277,7 @@ const VideoPlay = () => (
           position: 'absolute',
           bottom: 5,
           left: 10,
-          fontFamily: 'Poppins-Regular',
+          fontFamily: 'PoppinsRegular',
           color: '#fff',
         }}>
         Endurance
@@ -314,17 +314,17 @@ const VideoPlay = () => (
         <Image source={play} style={{height: 10, width: 10}} />
         </TouchableOpacity>     
       </View>
-      <Text style={{fontFamily: 'Poppins-Regular'}}>
+      <Text style={{fontFamily: 'PoppinsRegular'}}>
         10 Minutes Bodyweight Workout
       </Text>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-        <Text style={{fontFamily: 'Poppins-Regular', fontSize: 12}}>
+        <Text style={{fontFamily: 'PoppinsRegular', fontSize: 12}}>
           <Image source={book} style={{height: 15, width: 15}} />
           {'   Beginner'}
         </Text>
         <Text
           style={{
-            fontFamily: 'Poppins-Regular',
+            fontFamily: 'PoppinsRegular',
             fontSize: 12,
             color: '#8860a2',
           }}>
@@ -373,16 +373,16 @@ const Card = ({data, index}) => {
           }}
           textStyle={{
             fontSize: 16,
-            fontFamily: 'Poppins-Bold',
+            fontFamily: 'PoppinsBold',
             fontWeight: 'bold',
           }}
         />
       </View>
       <View>
-        <Text style={{fontSize: 10, fontFamily: 'Poppins-Light'}}>
+        <Text style={{fontSize: 10, fontFamily: 'PoppinsLight'}}>
           {'Day     1'}
         </Text>
-        <Text style={{fontSize: 10, fontFamily: 'Poppins-Light'}}>
+        <Text style={{fontSize: 10, fontFamily: 'PoppinsLight'}}>
           {'Time   20 min'}
         </Text>
       </View>
@@ -392,7 +392,7 @@ const Card = ({data, index}) => {
           justifyContent: 'space-between',
           alignItems: 'center',
         }}>
-        <Text style={{fontFamily: 'Poppins-Regular'}}>{data.name}</Text>
+        <Text style={{fontFamily: 'PoppinsRegular'}}>{data.name}</Text>
         <View
           style={{
             backgroundColor: data.lightColor,
@@ -488,8 +488,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {paddingHorizontal: 10, flex: 1, justifyContent: 'center'},
-  bigTitle: {fontSize: 16, fontFamily: 'Poppins-Medium'},
-  smallTitle: {fontSize: 10, fontFamily: 'Poppins-Regular', opacity: 0.6},
+  bigTitle: {fontSize: 16, fontFamily: 'PoppinsMedium'},
+  smallTitle: {fontSize: 10, fontFamily: 'PoppinsRegular', opacity: 0.6},
   image: {height: '100%', width: '100%'},
   fireImage: {height: 15, width: 15, alignSelf: 'center', margin: 5},
   banner: {
@@ -501,7 +501,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   bannerContainer: {flex: 1},
-  label: {fontFamily: 'Poppins-Medium', fontSize: 20, marginVertical: 10},
+  label: {fontFamily: 'PoppinsMedium', fontSize: 20, marginVertical: 10},
   model: {
     position: 'absolute',
     right: 0,
@@ -520,8 +520,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   screen: {margin: '3%'},
-  offer: {color: 'white', fontFamily: 'Poppins-Regular', fontSize: 10},
-  offerText: {color: 'white', fontSize: 16, fontFamily: 'Poppins-Regular'},
+  offer: {color: 'white', fontFamily: 'PoppinsRegular', fontSize: 10},
+  offerText: {color: 'white', fontSize: 16, fontFamily: 'PoppinsRegular'},
 
   rowLabel: {
     flexDirection: 'row',

@@ -30,6 +30,10 @@ import { useFonts } from 'expo-font';
 export default function App() {
   const [loaded] = useFonts({
     HelveticaNeue: require('./assets/fonts/HelveticaNeue-Medium.ttf'),
+    PoppinsRegular: require('./assets/fonts/Poppins-Regular.ttf'),
+    PoppinsMedium: require('./assets/fonts/Poppins-Medium.ttf'),
+    PoppinsLight: require('./assets/fonts/Poppins-Light.ttf'),
+    PoppinsBold: require('./assets/fonts/Poppins-Bold.ttf'),
   });
   
   if (!loaded) {
