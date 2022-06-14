@@ -10,58 +10,62 @@ export default function SocialScreen({navigation}) {
 
     return (
         <SafeAreaView style={{flex: 1}}>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                <Text style={styles.headerText}>Connect</Text>
-                <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                    <TouchableOpacity style={viewType === 0 ? styles.viewButtonSelected : styles.viewButtonUnselected} onPress={() => setViewType(0)}>
-                        <Ionicons name="map" size={30} color='white'></Ionicons>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={viewType === 1 ? styles.viewButtonSelected : styles.viewButtonUnselected} onPress={() => setViewType(1)}>
-                        <Ionicons name="albums" size={30} color='white'></Ionicons>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.chatButton} onPress={() => navigation.navigate('Chat')}>
-                        <Ionicons name="chatbubble" size={30} color='white'></Ionicons>
-                    </TouchableOpacity>
+            <View style={{flexDirection: 'column', justifyContent: 'space-between', flex: 1}}>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1, flexGrow: 1}}>
+                    <Text style={styles.headerText}>Connect</Text>
+                    <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <TouchableOpacity style={viewType === 0 ? styles.viewButtonSelected : styles.viewButtonUnselected} onPress={() => setViewType(0)}>
+                            <Ionicons name="map" size={30} color='white'></Ionicons>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={viewType === 1 ? styles.viewButtonSelected : styles.viewButtonUnselected} onPress={() => setViewType(1)}>
+                            <Ionicons name="albums" size={30} color='white'></Ionicons>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.chatButton} onPress={() => navigation.navigate('Chat')}>
+                            <Ionicons name="chatbubble" size={30} color='white'></Ionicons>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', flex: 1, flexGrow: 10}}> 
+                {viewType === 0 ? 
+                    (<MapView
+                        provider={PROVIDER_GOOGLE}
+                        style={styles.map}
+                        region={{
+                            latitude: 1.43714,
+                            longitude: 103.78799,
+                            latitudeDelta: 0.04,
+                            longitudeDelta: 0.03
+                        }}
+                    >
+                        <Marker 
+                            coordinate={{latitude: 1.43835, longitude: 103.79014}}
+                            image={require('./../../assets/selfpin.png')}
+                        />
+                        <Marker 
+                            coordinate={{latitude: 1.43632, longitude: 103.77908}}
+                            image={require('./../../assets/dude1pin.png')}
+                        />
+                        <Marker 
+                            coordinate={{latitude: 1.44356, longitude: 103.79803}}
+                            image={require('./../../assets/dude2pin.png')}
+                        />
+                        <Marker 
+                            coordinate={{latitude: 1.45235, longitude: 103.77949}}
+                            image={require('./../../assets/dude3pin.png')}
+                        />
+                        <Marker 
+                            coordinate={{latitude: 1.40178, longitude: 103.80715}}
+                            image={require('./../../assets/dog1pin.png')}
+                        />
+                    </MapView>) :
+                    (<FlatList
+                        data={userData}
+                        renderItem={renderUser}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                    />)}
                 </View>
             </View>
-            {viewType === 0 ? 
-            (<MapView
-                provider={PROVIDER_GOOGLE}
-                style={styles.map}
-                region={{
-                    latitude: 1.43714,
-                    longitude: 103.78799,
-                    latitudeDelta: 0.04,
-                    longitudeDelta: 0.03
-                }}
-            >
-                <Marker 
-                    coordinate={{latitude: 1.43835, longitude: 103.79014}}
-                    image={require('./../../assets/selfpin.png')}
-                />
-                <Marker 
-                    coordinate={{latitude: 1.43632, longitude: 103.77908}}
-                    image={require('./../../assets/dude1pin.png')}
-                />
-                <Marker 
-                    coordinate={{latitude: 1.44356, longitude: 103.79803}}
-                    image={require('./../../assets/dude2pin.png')}
-                />
-                <Marker 
-                    coordinate={{latitude: 1.45235, longitude: 103.77949}}
-                    image={require('./../../assets/dude3pin.png')}
-                />
-                <Marker 
-                    coordinate={{latitude: 1.40178, longitude: 103.80715}}
-                    image={require('./../../assets/dog1pin.png')}
-                />
-            </MapView>) :
-            (<FlatList
-                data={userData}
-                renderItem={renderUser}
-                horizontal
-                showsHorizontalScrollIndicator={false}
-            />)}
         </SafeAreaView>
     );
 }
@@ -173,6 +177,5 @@ const styles = StyleSheet.create({
     },
     map: {
         ...StyleSheet.absoluteFillObject,
-        top: "8%",
     }
 });
