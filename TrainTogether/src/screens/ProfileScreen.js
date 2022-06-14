@@ -2,12 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, ScrollView, TouchableOpacity } from "react-native";
 import {Ionicons, MaterialIcons} from '@expo/vector-icons'
 import * as ImagePicker from 'expo-image-picker';
-import { Camera } from 'expo-camera';
-import { NavigationContext } from 'react-navigation';
 
-function ProfileScreen({navigation}) {
-    //const [hasCameraPermission, setHasCameraPermission] = useState(null);
-    //const [camera, setCamera] = useState(null);
+
+function ProfileScreen() {
     const [hasGalleryPermission, setHasGalleryPermission] = useState(null);
     const [image, setImage] = useState(null);
 
