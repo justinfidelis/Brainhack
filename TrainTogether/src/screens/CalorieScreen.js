@@ -14,7 +14,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 const deviceWidth= Math.round(Dimensions.get('window').width);
 
 const data1 = {
-  labels: ["Fat", "Carbohydrates", "Protein"], // optional
+  labels: ["Fat", "Carbs", "Protein"], // optional
   data: [0.4, 0.6, 0.8]
 };
 
@@ -76,7 +76,7 @@ export default class CalorieScreen extends React.Component{
   }}
   style= {{
     borderRadius: 15,
-    paddingTop:5
+    paddingTop:5,
   }}
 />
       <Dialog.Container visible={this.state.visible}>
@@ -154,7 +154,7 @@ bodyStyle:{
   color: "#290916",
   fontWeight:"900",
   fontSize:15,
-  paddingLeft:20,
+  paddingHorizontal:20,
   paddingTop:5,
   fontStyle:"italic"
 },
