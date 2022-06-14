@@ -328,7 +328,7 @@ const VideoPlay = () => (
             fontSize: 12,
             color: '#8860a2',
           }}>
-          45 Min
+          10 Min
         </Text>
       </View>
     </View>

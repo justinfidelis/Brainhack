@@ -3,6 +3,7 @@ import {Text, SafeAreaView, ScrollView,
     View,
     TouchableOpacity,} from 'react-native';
 import React from 'react';
+import colors from '../../assets/colors/colors.js';
 
 export default function PlannerScreen() {
 
@@ -12,7 +13,8 @@ export default function PlannerScreen() {
           flexDirection: "column",
           justifyContent: "flex-start",
           alignItems: "center",
-          paddingTop: 80
+          paddingTop: 80,
+
         },
         progress: {
           width: "95%",
@@ -21,7 +23,7 @@ export default function PlannerScreen() {
           alignItems: "center",
         },
         title_box: {
-          backgroundColor: "rgba(74,144,226,1)",
+          backgroundColor: colors.green,
           borderRadius: 10,
           width: "95%",
           height: 40,
@@ -74,7 +76,7 @@ export default function PlannerScreen() {
           justifyContent: "center",
         },
         btn_shape: {
-          backgroundColor: "rgba(178,108,233,1)",
+          backgroundColor: colors.green,
           borderRadius: 10,
           width: "50%",
           height: 40,
@@ -154,7 +156,7 @@ export default function PlannerScreen() {
             <View
               style={[
                 styles.title_box,
-                { backgroundColor: "rgba(178,108,233,1)", marginVertical: 10 },
+                { backgroundColor: colors.olive, marginVertical: 10 },
               ]}
             >
               <Text style={styles.title}>Today's Attempt 🏋️</Text>
@@ -174,7 +176,7 @@ export default function PlannerScreen() {
               onPress={() => {}}
               style={[
                 styles.btn_shape,
-                { backgroundColor: "rgba(153,50,245,1)", marginHorizontal: 10 },
+                { backgroundColor: colors.olive, marginHorizontal: 10 },
               ]}
             >
               <Text style={styles.btn_text}>Refresh</Text>
