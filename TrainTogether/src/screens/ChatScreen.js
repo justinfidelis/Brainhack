@@ -45,7 +45,7 @@ const UnreadMessageComponent = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.green,
+        backgroundColor: colors.brown,
         borderBottomWidth: 2,
         borderBottomColor: 'white',
         flexDirection: 'row',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     },
     header: {
         color: 'white',
-        fontSize: 40,
+        fontSize: 35,
         fontFamily: 'PoppinsMedium',
         paddingLeft: 10,
         paddingVertical: 10,
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         fontFamily: 'PoppinsRegular'
     },
     unreadAlert: {
-        backgroundColor: '#5579c6',
+        backgroundColor: colors.blue,
         position: 'absolute',
         right: 40,
         marginVertical: 28,

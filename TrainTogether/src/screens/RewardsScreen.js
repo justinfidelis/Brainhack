@@ -138,7 +138,7 @@ const BoxItemCategories = ({text, icon}) => {
           </View>
           <View style={{height: 20}}></View>
           <View style={styles.points}>
-            <Text style={styles.wrapperButtom}>{points}</Text>
+            <Text style={styles.wrapperBottom}>{points}</Text>
             <TouchableOpacity>
               <AntDesign name="heart" size={20} color='white'></AntDesign>
             </TouchableOpacity>
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 10,
   },
-  wrapperButtom: {
+  wrapperBottom: {
     fontSize: 18,
     fontFamily: 'PoppinsRegular'
   },
