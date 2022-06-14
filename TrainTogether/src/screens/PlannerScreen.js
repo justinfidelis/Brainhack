@@ -94,6 +94,7 @@ export default function PlannerScreen() {
     let exercise = [];
     let activityTotal = 0.0;
     const activities = [{id: 0, name: "2.4km Run", duration: "11min", points: 20}, {id: 1, name: "Sit Ups", duration: "30 reps", points:20}, {id: 2, name: "Push Ups", duration: "20 reps", points:20}];
+    const date = new Date();
 
     activities.forEach((x) => {
       exercise.push(
@@ -114,6 +115,7 @@ export default function PlannerScreen() {
               padding: 15,
               width: "95%",
               height: "95%",
+
             }}
           >
             <Text style={{ fontSize: 25, fontWeight: "bold" }}>{x.name}</Text>
@@ -131,7 +133,7 @@ export default function PlannerScreen() {
         <View style={styles.progress_box}>
                 <Text style={styles.progress_title}>Today is</Text>
                 <Text style={styles.progress_value}>
-                  {"12/06/2022"}
+                  {date.toDateString()}
                 </Text>
               </View>
           <View style={styles.progress}>
@@ -180,7 +182,7 @@ export default function PlannerScreen() {
                 { backgroundColor: colors.olive, marginHorizontal: 10 },
               ]}
             >
-              <Text style={styles.btn_text}>Refresh</Text>
+              <Text style={styles.btn_text}>Calorie Counter</Text>
             </TouchableOpacity>
           </View>
         </View>
