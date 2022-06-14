@@ -51,8 +51,6 @@ const styles = StyleSheet.create({
     chatButton: {
         backgroundColor: colors.brown,
         borderRadius: 10,
-        borderWidth: 1,
-        borderColor: colors.olive,
         width: 40,
         height: 40,
         alignSelf: 'center',
@@ -73,8 +71,6 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         backgroundColor: colors.blue,
         borderRadius: 30,
-        borderColor: colors.olive,
-        borderWidth: 1,
         alignItems: 'center',
         justifyContent: 'center',
         marginVertical: 10,
