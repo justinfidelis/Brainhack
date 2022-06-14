@@ -61,8 +61,8 @@ export default class CalorieScreen extends React.Component{
           <Pressable style={styles.button}  onPress={()=>this.setState({visible:true})}>
           <Text style={styles.buttonStyles}>RECORD CALORIE INTAKE</Text>
           </Pressable>
-          <Text style={{paddingLeft:150, paddingTop:35, fontSize: 17, fontWeight: "bold"}}>Today</Text>
-          <Image  style={{height:20,width:20, opacity:0.8, position:'absolute',top:100, left:200}} source= {require('../../assets/today.png')}></Image>
+          <Text style={{paddingLeft:150, paddingTop:20, fontSize: 17, fontWeight: "bold", fontFamily: "PoppinsRegular"}}>Today</Text>
+          <Image  style={{height:20,width:20, opacity:0.8, position:'absolute',top:103, left:210}} source= {require('../../assets/today.png')}></Image>
           <ProgressChart
   data={data1}
   width={ deviceWidth - 15 }
@@ -116,7 +116,7 @@ const styles=StyleSheet.create({
   cardContainer:{
     width: deviceWidth - 30, 
     backgroundColor: '#DFD8C8',
-    height: 300,
+    height: 370,
     borderRadius:15,
     shadowColor: '#000000',
   shadowOffset: {
@@ -130,7 +130,7 @@ paddingBottom:50
 imageStyle: {
   width: deviceWidth-30,
   height: 200,
-  borderRadius:30,
+  borderRadius:15,
   overflow:"hidden",
   opacity: 0.9
 
@@ -148,15 +148,17 @@ titleStyle:{
   fontSize:23,
   paddingLeft:100,
   paddingTop: 5,
+  fontFamily: "PoppinsRegular"
   //fontStyle:"italic"
 },
 bodyStyle:{
   color: "#290916",
   fontWeight:"900",
-  fontSize:15,
+  fontSize:20,
   paddingHorizontal:20,
   paddingTop:5,
-  fontStyle:"italic"
+  fontStyle:"italic",
+  fontFamily: "PoppinsMedium"
 },
 button:{
     alignItems: 'center',
@@ -165,15 +167,19 @@ button:{
     paddingHorizontal: 40,
     borderRadius: 7,
     elevation: 5,
-    backgroundColor: "#DFD8C8"
+    backgroundColor: "#DFD8C8",
+    borderRadius: 30,
+    marginTop: 10
     
 },
 buttonStyles: {
-  fontSize: 15,
+  fontSize: 20,
+  marginTop: 5,
   lineHeight: 21,
   fontWeight: 'bold',
   letterSpacing: 0.25,
   color: '#663046',
+  fontFamily: "PoppinsRegular"
 },
 
 })
