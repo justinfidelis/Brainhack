@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList} from 'react-native';
+import {View, SafeAreaView, StyleSheet, Text, Image, TouchableOpacity, FlatList} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import userData from '../../assets/userData.js';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -28,7 +28,7 @@ const renderUser = ({item}) => {
     return (
         <TouchableOpacity style={styles.userContainer}>
             <View style={styles.profpic}>
-                <AntDesign name="user" size={120} color='white'></AntDesign>
+                <Image source={item.image} resizeMode='cover' style={styles.image}></Image>
             </View>
             <View style={{height: 30}}></View>
             <Text style={styles.userInfo}>{item.name}</Text>
@@ -80,9 +80,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#d3d3d3',
         borderRadius: 100,
         borderWidth: 1,
+        height: 200,
+        width: 200,
         borderColor: colors.olive,
-        paddingVertical: 5,
-        paddingHorizontal: 5
+        overflow: "hidden",
     },
     userInfo: {
         color: 'black',
@@ -101,5 +102,11 @@ const styles = StyleSheet.create({
     userButtonText: {
         fontSize: 15,
         fontFamily: 'PoppinsRegular'
+    },
+    image: {
+        flex: 1,
+        width: undefined,
+        height: undefined,
+        borderRadius: 100,
     }
 });

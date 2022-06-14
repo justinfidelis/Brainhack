@@ -90,6 +90,7 @@ import {
   Image,
   ImageBackground,
   SafeAreaView,
+  ScrollView,
   TouchableOpacity,
   StyleSheet,
   Text,
@@ -126,6 +127,7 @@ const App = ({navigation}) => {
           <Header />
           <Banner />
         </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{marginHorizontal: '3%'}}>
           <Label>Your Recommended Workouts</Label>
           <View style={{flexDirection: 'row'}}>
@@ -163,6 +165,7 @@ const App = ({navigation}) => {
         </TouchableOpacity>
         </View>
         </View>
+        </ScrollView>
       </SafeAreaView>
     </>
   );
