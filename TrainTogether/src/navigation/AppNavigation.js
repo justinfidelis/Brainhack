@@ -15,6 +15,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ChatScreen from '../screens/ChatScreen.js';
 import SignUpScreen from '../screens/SignUpScreen.js';
 import colors from '../../assets/colors/colors.js';
+import CalorieScreen from '../screens/CalorieScreen.js';
+import FoodScreen from '../screens/FoodScreen.js';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -100,6 +102,16 @@ const AppNavigation = () => {
           <Stack.Screen
             name="Chat"
             component={ChatScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Calorie"
+            component={CalorieScreen}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="Food"
+            component={FoodScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

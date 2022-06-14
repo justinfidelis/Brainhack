@@ -38,7 +38,7 @@ const data = [
     label: 'Supper'
    },
   ];
-  const banner = require('./assets/BG.png');
+  const banner = require('../../assets/BG.png');
 export default class CalorieScreen extends React.Component{
   state={
     visible:false,
@@ -47,8 +47,8 @@ export default class CalorieScreen extends React.Component{
     return(
       <View style={styles.container}>
         <View style={styles.cardContainer}>
-          <ImageBackground style={styles.imageStyle} source= {require('./assets/BG.png')}>
-          <Image style={styles.imageStyle1} source= {require('./assets/food_tracker.png')}/>
+          <ImageBackground style={styles.imageStyle} source= {require('../../assets/BG.png')}>
+          <Image style={styles.imageStyle1} source= {require('../../assets/food_tracker.png')}/>
           </ImageBackground>
           <Text style={styles.bodyStyle}>Hey Nicholas,</Text>
           <Text style={styles.bodyStyle}>Track down your daily food intake to have a healthy and balanced diet!</Text>
@@ -58,7 +58,7 @@ export default class CalorieScreen extends React.Component{
           <Text style={styles.buttonStyles}>RECORD CALORIE INTAKE</Text>
           </Pressable>
           <Text style={{paddingLeft:150, paddingTop:35, fontSize: 17, fontWeight: "bold"}}>Today</Text>
-          <Image  style={{height:20,width:20, opacity:0.8, position:'absolute',top:100, left:200}} source= {require('./assets/today.png')}></Image>
+          <Image  style={{height:20,width:20, opacity:0.8, position:'absolute',top:100, left:200}} source= {require('../../assets/today.png')}></Image>
           <ProgressChart
   data={data1}
   width={ deviceWidth - 15 }

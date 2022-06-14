@@ -5,7 +5,7 @@ import {Text, SafeAreaView, ScrollView,
 import React from 'react';
 import colors from '../../assets/colors/colors.js';
 
-export default function PlannerScreen() {
+export default function PlannerScreen({navigation}) {
 
     const styles = StyleSheet.create({
         container: {
@@ -176,7 +176,7 @@ export default function PlannerScreen() {
               <Text style={styles.btn_text}>Edit</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => {}}
+              onPress={() => navigation.navigate('Calorie')}
               style={[
                 styles.btn_shape,
                 { backgroundColor: colors.olive, marginHorizontal: 10 },
