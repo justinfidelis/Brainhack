@@ -2,7 +2,6 @@ import React from 'react';
 import {View, SafeAreaView, StyleSheet, Text, Image, TouchableOpacity, FlatList} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import userData from '../../assets/userData.js';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 import colors from '../../assets/colors/colors.js';
 
 export default function SocialScreen({navigation}) {
