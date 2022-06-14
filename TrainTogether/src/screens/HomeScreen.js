@@ -1,90 +1,3 @@
-// import { View, Text, SafeAreaView, StyleSheet, TextInput} from 'react-native';
-// import React, { useState } from 'react';
-// import DatePicker from 'react-native-datepicker';
-// export default function HomeScreen() {
-//     const [date, setDate] = useState(new Date());
-//     var todaydate = new Date();
-//     const startDate  = new Date();
-//   const diffTime = Math.abs(date - startDate);
-//   const diffInDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-//     return (
-//         <SafeAreaView>
-//            <Text style={styles.home}>Home</Text> 
-//            <View style={styles.workout}>
-//            </View>
-//            <View style={styles.box}>
-//                <Text style={styles.text}>Calorie counter</Text>
-//            </View>
-//            <View style={styles.box}>
-//                <Text style={styles.text}>Days to IPPT</Text>
-//                <DatePicker
-//           style={styles.datePickerStyle}
-//           date={date} //initial date from state
-//           mode="date" //The enum of date, datetime and time
-//           placeholder="select date"
-//           format="DD-MM-YYYY"
-//           minDate={todaydate}
-//           maxDate="01-01-2200"
-//           confirmBtnText="Confirm"
-//           cancelBtnText="Cancel"
-//           customStyles={{
-//             dateIcon: {
-//               //display: 'none',
-//               position: 'absolute',
-//               left: 0,
-//               top: 4,
-//               marginLeft: 0,
-//             },
-//             dateInput: {
-//               marginLeft: 36,
-//             },
-//           }}
-//           onDateChange={(date) => {
-//             setDate(date);
-//           }}
-//         /> 
-//             <Text style={styles.text}>{diffInDays}</Text>
-//            </View>
-//         </SafeAreaView>
-//     ); 
- 
-// }
-
-// const styles = StyleSheet.create({
-//     home: {
-//         color: 'black',
-//         fontWeight: 'bold',
-//         fontSize: 40,
-//         paddingBottom: 10,
-//         paddingLeft: 10,
-//         textAlign: 'center'
-//         //fontFamily: 'Comfortaa_700Bold'
-//     },
-//     workout: {
-//         backgroundColor: 'black',
-//         width: 200,
-//         height: 270,
-//         borderRadius: 30,
-//         marginLeft: 20,
-//         marginTop: 30,
-//         marginBottom: 40
-        
-//     },
-//     box: {
-//         backgroundColor: 'darkgrey',
-//         width: 200,
-//         height: 130,
-//         borderRadius: 30,
-//         marginLeft: 20,
-//         marginTop: 30 
-//     },
-//     text: {
-//         alignSelf: 'center',
-//         fontWeight: 'bold',
-//         paddingTop: 10
-//     }
-// })
-
 import React from 'react';
 import {
   Image,
@@ -114,9 +27,6 @@ const play = require('../../assets/play.png');
 const star = require('../../assets/Star.png');
 const workout = require('../../assets/workout.png');
 const home = require('../../assets/Home.png');
-const heart = require('../../assets/H.png');
-const calendar = require('../../assets/Calender.png');
-const profile = require('../../assets/User.png');
 const plus = require('../../assets/Plus.png');
 
 const App = ({navigation}) => {
@@ -172,75 +82,6 @@ const App = ({navigation}) => {
 };
 
 export default App;
-
-const BottomTab = () => (
-  <View
-    style={{
-      position: 'absolute',
-      bottom: 10,
-      margin: 10,
-      marginHorizontal: 25,
-      borderRadius: 20,
-      padding: 10,
-      // width: '100%',
-      backgroundColor: '#EDEDED',
-      flexDirection: 'row',
-      alignItems: 'center',
-    }}>
-    <BottomButton image={home} />
-    <BottomButton image={heart} />
-    <BottomButton
-      image={plus}
-      style={{
-        position: 'absolute',
-        left: '43%',
-        top: -25,
-        backgroundColor: '#fff',
-        padding: 8,
-        borderRadius: 20,
-      }}
-    />
-    <BottomButton />
-    <BottomButton image={calendar} />
-    <BottomButton image={profile} />
-  </View>
-);
-const BottomButton = ({image, style, imageStyle}) => (
-  <>
-    <View
-      style={[
-        {
-          flex: 1,
-          alignSelf: 'center',
-          alignItems: 'center',
-        },
-        style,
-      ]}>
-      <Image
-        source={image}
-        style={[
-          {
-            height: image === plus ? 40 : 20,
-            width: image === plus ? 40 : 20,
-          },
-          imageStyle,
-        ]}
-      />
-    </View>
-    {image === home && (
-      <View
-        style={{
-          width: '10%',
-          position: 'absolute',
-          height: 2,
-          backgroundColor: '#8860a2',
-          bottom: 0,
-          left: 25,
-        }}
-      />
-    )}
-  </>
-);
 
 const callFun = () =>
   {
