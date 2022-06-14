@@ -126,6 +126,7 @@ export default function PlannerScreen() {
     });
 
     return (
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
         <View style={styles.progress_box}>
                 <Text style={styles.progress_title}>Today is</Text>
@@ -183,6 +184,7 @@ export default function PlannerScreen() {
             </TouchableOpacity>
           </View>
         </View>
+        </ScrollView>
       );
 
       
