@@ -97,6 +97,7 @@ import {
   View,
 } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
+import colors from '../../assets/colors/colors.js';
 import * as Progress from 'react-native-progress';
 const headerImage = require('../../assets/army_profile.jpg');
 const notification = require('../../assets/Notification.png');
@@ -110,7 +111,7 @@ const walk = require('../../assets/walk.png');
 const next = require('../../assets/next.png');
 const play = require('../../assets/play.png');
 const star = require('../../assets/Star.png');
-const book = require('../../assets/Book.png');
+const workout = require('../../assets/workout.png');
 const home = require('../../assets/Home.png');
 const heart = require('../../assets/H.png');
 const calendar = require('../../assets/Calender.png');
@@ -156,7 +157,7 @@ const App = ({navigation}) => {
           <View style={styles.logout}>
           <TouchableOpacity
           onPress={() => navigation.navigate('LogInScreen')}
-          style={[styles.btn_shape, { backgroundColor: "red" }]}
+          style={[styles.btn_shape, { backgroundColor: colors.olive }]}
         >
           <Text style={styles.btn_text}>Log Out</Text>
         </TouchableOpacity>
@@ -277,7 +278,7 @@ const VideoPlay = () => (
           position: 'absolute',
           bottom: 5,
           left: 10,
-          fontFamily: 'PoppinsRegular',
+          fontFamily: 'PoppinsMedium',
           color: '#fff',
         }}>
         Endurance
@@ -303,7 +304,7 @@ const VideoPlay = () => (
       <View
         style={{
           position: 'absolute',
-          backgroundColor: '#8860a2',
+          backgroundColor: colors.brown,
           padding: 10,
           right: 25,
           top: -15,
@@ -319,16 +320,17 @@ const VideoPlay = () => (
       </Text>
       <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
         <Text style={{fontFamily: 'PoppinsRegular', fontSize: 12}}>
-          <Image source={book} style={{height: 15, width: 15}} />
-          {'   Beginner'}
+          <Image source={workout} style={{height: 15, width: 20}} />
+          {' Beginner'}
         </Text>
         <Text
           style={{
             fontFamily: 'PoppinsRegular',
             fontSize: 12,
-            color: '#8860a2',
+            fontWeight:'bold',
+            color: colors.brown,
           }}>
-          45 Min
+          10 Min
         </Text>
       </View>
     </View>
@@ -454,19 +456,22 @@ const ImageContainer = ({image, height = '100%', width = '100%'}) => (
     <Image source={image} style={[{height, width}]} />
   </View>
 );
+
+const todaysDate = new Date().toDateString();
+
 const HeaderTitle = () => (
   <View style={styles.title}>
-    <Text style={styles.bigTitle}>Hi, John</Text>
-    <Text style={styles.smallTitle}>13 Jun, 2022</Text>
+    <Text style={styles.bigTitle}>Hi, Nicholas</Text>
+    <Text style={styles.smallTitle}>{todaysDate}</Text>
   </View>
 );
 
 const Label = ({children}) => <Text style={styles.label}>{children}</Text>;
 const styles = StyleSheet.create({
   btn_shape: {
-    backgroundColor: "rgba(178,108,233,1)",
-    borderRadius: 10,
-    width: "50%",
+    backgroundColor: colors.olive,
+    borderRadius: 30,
+    width: "27%",
     height: 40,
     marginTop: 10,
     justifyContent: "center",
@@ -476,8 +481,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   btn_text: {
+    fontFamily: 'PoppinsMedium',
     color: "rgba(255,255,255,1)",
-    fontSize: 16,
+    fontSize: 17,
     textAlign: "center",
     fontWeight: "bold",
   },
@@ -488,8 +494,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {paddingHorizontal: 10, flex: 1, justifyContent: 'center'},
-  bigTitle: {fontSize: 16, fontFamily: 'PoppinsMedium'},
-  smallTitle: {fontSize: 10, fontFamily: 'PoppinsRegular', opacity: 0.6},
+  bigTitle: {fontSize: 20, fontFamily: 'PoppinsBold'},
+  smallTitle: {fontSize: 10, fontFamily: 'PoppinsMedium', opacity: 0.6},
   image: {height: '100%', width: '100%'},
   fireImage: {height: 15, width: 15, alignSelf: 'center', margin: 5},
   banner: {
@@ -537,24 +543,24 @@ const data = [
     name: 'Cycling',
     status: 85,
     image: cycle,
-    lightColor: '#f8e4d9',
-    color: '#fcf1ea',
-    darkColor: '#fac5a4',
+    lightColor: colors.olive,
+    color: colors.lime,
+    darkColor: 'rgb(142, 145, 110)',
   },
   {
     name:'Running',
     status: 25,
     image: walk,
-    lightColor: '#d7f0f7',
-    color: '#e8f7fc',
-    darkColor: '#aceafc',
+    lightColor: 'rgb(115, 82, 53)',
+    color: '#ab9480',
+    darkColor: colors.brown,
   },
   {
     name: 'Core',
     status: 85,
     image: yoga,
-    lightColor: '#dad5fe',
-    color: '#e7e3ff',
-    darkColor: '#8860a2',
+    lightColor: '#25472c',
+    color: '#b4d2ba',
+    darkColor: '#607d66',
   },
 ];

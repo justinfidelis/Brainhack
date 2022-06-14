@@ -14,6 +14,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import ChatScreen from '../screens/ChatScreen.js';
 import SignUpScreen from '../screens/SignUpScreen.js';
+import colors from '../../assets/colors/colors.js';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -22,7 +23,7 @@ const TabNavigator = () => (
       <Tab.Navigator initialRouteName='Home'
         screenOptions={{
           tabBarStyle: styles.tabBar,
-          tabBarActiveTintColor: 'rgb(127, 139, 163)',
+          tabBarActiveTintColor: colors.olive,
           tabBarInactiveTintColor: 'white',
           tabBarShowLabel: false,
           headerShown: false,
@@ -108,7 +109,7 @@ const AppNavigation = () => {
 
 const styles = StyleSheet.create({
     tabBar: {
-      backgroundColor: 'rgb(15, 50, 125)',
+      backgroundColor: '#b8cc9b',
       borderRadius: 30
     },
   });
