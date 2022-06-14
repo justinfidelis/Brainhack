@@ -80,7 +80,10 @@ export default class CalorieScreen extends React.Component{
   data={data}
   selectedBtn={(e) => console.log(e)}
 />
-        <Dialog.Button label="Done" onPress={()=>this.props.navigation.navigate('Food')} />
+        <Dialog.Button label="Done" onPress={()=>
+          {this.props.navigation.navigate('Food');
+          this.setState({visible:false});
+        }} />
         <Dialog.Button label="Cancel" onPress={()=>this.setState({visible:false})} />
         
       </Dialog.Container>
