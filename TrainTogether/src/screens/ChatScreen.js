@@ -1,6 +1,7 @@
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import colors from '../../assets/colors/colors';
 
 export default function ChatScreen({navigation}) {
     return (
@@ -44,7 +45,7 @@ const UnreadMessageComponent = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#98c1d9',
+        backgroundColor: colors.green,
         borderBottomWidth: 2,
         borderBottomColor: 'white',
         flexDirection: 'row',
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     header: {
         color: 'white',
         fontSize: 40,
-        fontWeight: 'bold',
+        fontFamily: 'PoppinsMedium',
         paddingLeft: 10,
         paddingVertical: 10,
     },
@@ -81,7 +82,8 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     messageText: {
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'PoppinsRegular'
     },
     unreadAlert: {
         backgroundColor: '#5579c6',

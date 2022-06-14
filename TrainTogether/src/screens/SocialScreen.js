@@ -3,6 +3,7 @@ import {View, SafeAreaView, StyleSheet, Text, TouchableOpacity, FlatList} from '
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import userData from '../../assets/userData.js';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import colors from '../../assets/colors/colors.js';
 
 export default function SocialScreen({navigation}) {
     return (
@@ -17,7 +18,7 @@ export default function SocialScreen({navigation}) {
             <Text style={styles.headerText}>Messages</Text>
             <TouchableOpacity style={styles.chatButton} onPress={() => navigation.navigate('Chat')}>
                 <Ionicons name="chatbubble" size={30} color='white'></Ionicons>
-                <Text style={{color: 'white'}}>Chat</Text>
+                <Text style={{color: 'white', fontFamily:'PoppinsRegular'}}>Chat</Text>
             </TouchableOpacity>
         </SafeAreaView>
     );
@@ -38,7 +39,7 @@ const renderUser = ({item}) => {
 
 const styles = StyleSheet.create({
     chatButton: {
-        backgroundColor: '#98c1d9',
+        backgroundColor: colors.green,
         borderRadius: 10,
         width: '70%',
         height: '10%',
@@ -49,9 +50,9 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     headerText: {
-        color: '#0B0B45',
+        color: 'black',
         fontSize: 35,
-        fontWeight: 'bold',
+        fontFamily: 'PoppinsMedium',
         paddingLeft: 20,
         paddingVertical: 5,
     },
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
         height: '95%',
         paddingHorizontal: 20,
         paddingVertical: 20,
-        backgroundColor: '#3d5a80',
+        backgroundColor: colors.olive,
         borderRadius: 10,
         borderColor: 'white',
         borderWidth: 2,
@@ -77,5 +78,6 @@ const styles = StyleSheet.create({
     userInfo: {
         color: 'white',
         fontSize: 20,
+        fontFamily: 'PoppinsRegular'
     }
 });
